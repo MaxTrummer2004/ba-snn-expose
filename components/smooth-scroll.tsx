@@ -1,12 +1,15 @@
 "use client";
 
 import { features } from "@/lib/config";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
 
 const LENIS_OPTIONS = {
-  duration: 1.6,
-  easing: (t: number): number => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  // Framerate-unabhängiges Lerp fühlt sich direkter an als duration-basiert.
+  // 0.08 = träge/floaty … 0.15 = sehr direkt. 0.1 ist ein guter Mittelwert.
+  lerp: 0.075,
   orientation: "vertical" as const,
   gestureOrientation: "vertical" as const,
   smoothWheel: true,
@@ -25,21 +28,20 @@ export function SmoothScroll({ children }: { children: ReactNode }): ReactNode {
     ).matches;
     if (prefersReducedMotion) return;
 
+    gsap.registerPlugin(ScrollTrigger);
+
     const lenis = new Lenis(LENIS_OPTIONS);
 
-    const MAX_DT = 50; 
-    let synthTime = 0;
-    let lastReal = performance.now();
+    // Ein einziger rAF-Loop: GSAP-Ticker treibt Lenis, Lenis aktualisiert
+    // ScrollTrigger. So bleiben gepinnte Sektionen (Value-Prop) synchron und
+    // ruckelfrei, statt gegen einen zweiten rAF-Loop zu laufen.
+    lenis.on("scroll", ScrollTrigger.update);
 
-    function raf(time: number): void {
-      const dt = time - lastReal;
-      lastReal = time;
-
-      synthTime += Math.max(0, Math.min(dt, MAX_DT));
-      lenis.raf(synthTime);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    const update = (time: number): void => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
 
     function handleAnchorClick(event: MouseEvent): void {
       const target = event.target;
@@ -57,6 +59,8 @@ export function SmoothScroll({ children }: { children: ReactNode }): ReactNode {
     document.addEventListener("click", handleAnchorClick);
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      gsap.ticker.remove(update);
+      lenis.off("scroll", ScrollTrigger.update);
       lenis.destroy();
     };
   }, []);

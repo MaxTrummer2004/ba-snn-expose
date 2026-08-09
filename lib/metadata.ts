@@ -1,30 +1,33 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Lumen",
-  shortDescription: "Build what matters, ship without limits.",
+  name: "Max Trummer",
+  shortDescription:
+    "Bedingte Energieeffizienz von Spiking Neural Networks",
   description:
-    "Lumen is the all-in-one platform for product teams to design, deploy, and scale software. Plan, build, and ship from a single surface with real-time collaboration, branch previews, and integrations for GitHub, Slack, and Linear.",
-  url: "https://example.com",
-  ogImage: "/og-image.png",
-  creator: "@lumen",
+    "Bachelorarbeit-Exposé: Ab welchem Kipppunkt schlägt ein Spiking Neural Network einen quantisierten Transformer? Eine datenbasierte Kipppunkt-Analyse über Energie pro Spike und Rechenpräzision auf SST-2. DBU Berlin, 2026.",
+  // TODO: vor Deployment auf die echte Produktions-URL setzen (Vercel etc.)
+  url: "https://snn-kipppunkt.vercel.app",
+  creator: "Max Trummer",
   authors: [
     {
-      name: "Lumen",
-      url: "https://example.com",
+      name: "Max Trummer",
+      url: "https://snn-kipppunkt.vercel.app",
     },
   ],
   keywords: [
-    "Lumen",
-    "developer platform",
-    "product platform",
-    "ship software",
-    "branch previews",
-    "real-time collaboration",
-    "deployment platform",
-    "SaaS landing page",
-    "Next.js",
-    "React",
+    "Spiking Neural Networks",
+    "SNN",
+    "Energieeffizienz",
+    "quantisierte Transformer",
+    "INT8",
+    "neuromorphe Hardware",
+    "Intel Loihi",
+    "SST-2",
+    "Kipppunkt-Analyse",
+    "Green AI",
+    "Bachelorarbeit",
+    "DBU Berlin",
   ],
 } as const;
 
@@ -40,7 +43,7 @@ export const baseMetadata: Metadata = {
   authors: [...siteConfig.authors],
   creator: siteConfig.creator,
   publisher: siteConfig.name,
-  category: "technology",
+  category: "science",
   formatDetection: {
     email: false,
     address: false,
@@ -62,25 +65,16 @@ export const baseMetadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "de_DE",
     url: siteConfig.url,
     title: `${siteConfig.name} — ${siteConfig.shortDescription}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.shortDescription}`,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
     creator: siteConfig.creator,
   },
   icons: {
@@ -97,17 +91,14 @@ export function createMetadata({
   title,
   description,
   path = "/",
-  image,
   noIndex = false,
 }: {
   title?: string;
   description?: string;
   path?: string;
-  image?: string;
   noIndex?: boolean;
 }): Metadata {
   const url = `${siteConfig.url}${path}`;
-  const ogImage = image ?? siteConfig.ogImage;
   const finalTitle = title ?? `${siteConfig.name} — ${siteConfig.shortDescription}`;
   const finalDesc = description ?? siteConfig.description;
 
@@ -121,19 +112,10 @@ export function createMetadata({
       title: finalTitle,
       description: finalDesc,
       url,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: finalTitle,
-        },
-      ],
     },
     twitter: {
       title: finalTitle,
       description: finalDesc,
-      images: [ogImage],
     },
     ...(noIndex && {
       robots: {

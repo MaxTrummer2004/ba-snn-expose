@@ -1,5 +1,4 @@
 import { Providers } from "@/components/providers";
-import { ShaderVariantToggle } from "@/components/shader-variant-toggle";
 import { SkipToContent } from "@/components/skip-to-content";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { baseMetadata } from "@/lib/metadata";
@@ -38,14 +37,13 @@ export default function RootLayout({
   children: ReactNode;
 }>): ReactNode {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
       >
         <Providers>
-          <SkipToContent />
+<SkipToContent />
           {children}
-          <ShaderVariantToggle />
           <ThemeSwitch />
         </Providers>
       </body>

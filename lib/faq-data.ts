@@ -5,27 +5,27 @@ export interface FaqItem {
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    q: "How does the free trial work?",
-    a: "Every workspace starts on Pro for 14 days, no card required. You get the full feature set, unlimited projects, and real collaboration. When the trial ends you can downgrade, switch to Enterprise, or keep going on Pro.",
+    q: "Was ist ein Spiking Neural Network (SNN)?",
+    a: "Ein SNN ist ein neuronales Netz der dritten Generation, das Information über diskrete Spikes in der Zeit kodiert statt über kontinuierliche Aktivierungen. Neuronen feuern nur bei relevantem Input, wodurch die Berechnung ereignisgesteuert und potenziell energiesparsamer wird als bei klassischen künstlichen neuronalen Netzen.",
   },
   {
-    q: "Can I bring my existing tools?",
-    a: "Yes. Lumen connects to GitHub, GitLab, Slack, Linear, Jira, and Figma out of the box. Anything else, the public API and webhooks cover. Most teams are wired up in under an hour.",
+    q: "Sind SNNs immer energieeffizienter als Transformer?",
+    a: "Nein. Der Energievorteil gilt nicht bedingungslos, sondern hängt von der Energie pro Spike der Zielhardware und der Rechenpräzision des Vergleichsmodells ab. Gegenüber FP32-Transformern ist das SNN durchgängig effizienter; gegenüber INT8-Transformern kippt der Vorteil bei rund 6 bis 9 pJ pro Spike.",
   },
   {
-    q: "What does pricing look like at scale?",
-    a: "Pro stays at $29 per seat regardless of headcount. Enterprise pricing depends on your security model, support tier, and infrastructure footprint. We will quote a flat annual commitment, never a metered surprise.",
+    q: "Was bedeutet der Kipppunkt in dieser Arbeit?",
+    a: "Der Kipppunkt ist die Energie pro Spike, ab der ein INT8-Transformer effizienter wird als ein parametervergleichbares SNN. Er liegt bei etwa 6 bis 9 pJ pro Spike und damit unterhalb dokumentierter neuromorpher Chips wie Intel Loihi (23,6 pJ) oder IBM TrueNorth (26 pJ).",
   },
   {
-    q: "How is my data handled?",
-    a: "Data is encrypted in transit and at rest, isolated per workspace, and stored in the region you pick at signup. Enterprise plans add SSO, SCIM, audit logs, custom DPAs, and SOC 2 Type II reports on request.",
+    q: "Welche Daten und Modelle werden verglichen?",
+    a: "Verglichen werden sechs parametervergleichbare Modelle (drei SNNs, drei Transformer, 1 bis 5 Mio. Parameter), trainiert und evaluiert auf SST-2 aus dem GLUE-Benchmark. Alle erreichen eine vergleichbare Klassifikationsgüte von rund 79 bis 84 % auf dem Dev-Set.",
   },
   {
-    q: "Do you support self-hosting?",
-    a: "Self-hosted deployments are available on Enterprise. You run Lumen inside your own VPC on AWS, GCP, or Azure, we handle upgrades through a managed control plane. Talk to sales for a reference architecture.",
+    q: "Wie wird die Energie gemessen?",
+    a: "Über ein hardwarebewusstes Energiemodell: SynOps (SNN) und MACs (Transformer) pro Inferenz werden gemessen und mit den Energiewerten nach Horowitz (2014) gewichtet — 4,6 pJ pro FP32-MAC, 0,23 pJ pro INT8-MAC — ergänzt um Speicherzugriffe über alle Zeitschritte.",
   },
   {
-    q: "What if I need to cancel?",
-    a: "Cancel anytime from billing settings. You keep access through the end of the current period and can export every project, file, and asset as a single archive. No retention games.",
+    q: "Welchen praktischen Nutzen hat das Ergebnis?",
+    a: "Die resultierende Effizienz-Landkarte über Energie pro Spike und Rechenpräzision liefert eine Entscheidungsgrundlage: ML- und Plattform-Teams können für gegebene Zielhardware ablesen, ob sich ein SNN gegenüber einem INT8-Transformer lohnt, statt einem pauschalen Effizienzversprechen zu folgen.",
   },
 ];

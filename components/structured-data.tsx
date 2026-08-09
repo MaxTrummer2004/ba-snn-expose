@@ -7,54 +7,49 @@ function jsonLd(data: object): string {
 }
 
 export function StructuredData(): ReactNode {
-  const organization = {
+  const person = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Person",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/icon.svg`,
-    sameAs: [`https://twitter.com/${siteConfig.creator.replace(/^@/, "")}`],
+    email: "maxtrummer16@gmail.com",
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "DBU Digital Business University of Applied Sciences, Berlin",
+    },
   };
 
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteConfig.name,
+    name: siteConfig.shortDescription,
     url: siteConfig.url,
     description: siteConfig.description,
-    publisher: { "@type": "Organization", name: siteConfig.name },
+    inLanguage: "de-DE",
+    author: { "@type": "Person", name: siteConfig.name },
   };
 
-  const software = {
+  const scholarly = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: siteConfig.name,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    description: siteConfig.description,
+    "@type": "ScholarlyArticle",
+    headline:
+      "Bedingte Energieeffizienz von Spiking Neural Networks: Eine Kipppunkt-Analyse gegenüber quantisierten Transformer-Modellen auf SST-2",
+    abstract: siteConfig.description,
+    inLanguage: "de-DE",
     url: siteConfig.url,
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Pro",
-        price: "29",
-        priceCurrency: "USD",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: "29",
-          priceCurrency: "USD",
-          unitText: "seat / month",
-        },
+    author: {
+      "@type": "Person",
+      name: siteConfig.name,
+      affiliation: {
+        "@type": "CollegeOrUniversity",
+        name: "DBU Digital Business University of Applied Sciences, Berlin",
       },
-      {
-        "@type": "Offer",
-        name: "Enterprise",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          priceCurrency: "USD",
-          description: "Custom pricing",
-        },
-      },
+    },
+    about: [
+      "Spiking Neural Networks",
+      "Energieeffizienz",
+      "Neuromorphe Hardware",
+      "Quantisierung",
     ],
   };
 
@@ -75,7 +70,7 @@ export function StructuredData(): ReactNode {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(organization) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(person) }}
       />
       <script
         type="application/ld+json"
@@ -83,7 +78,7 @@ export function StructuredData(): ReactNode {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(software) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(scholarly) }}
       />
       <script
         type="application/ld+json"

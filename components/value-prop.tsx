@@ -2,7 +2,6 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RollingArrow } from "@/components/arrow-chip";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, type ReactNode } from "react";
 import { WaveShader, type WaveParams, type WaveShaderHandle } from "./wave-shader";
@@ -14,18 +13,26 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    eyebrow: "The problem",
-    body: "Modern teams ship slower than they think. Tooling fragments, context evaporates, and momentum dies between handoffs.",
+    eyebrow: "Das Problem",
+    body: "Nicht das Training, sondern die millionenfach anfallende Inferenz dominiert die Energiekosten im Betrieb.",
   },
   {
-    eyebrow: "The approach",
-    body: "Lumen unifies design, deployment, and observability into one system, so the work flows in a single, continuous direction.",
+    eyebrow: "Der Ansatz",
+    body: "Spiking Neural Networks rechnen nur, wenn ein Spike eintrifft — ereignisgesteuert statt taktsynchron wie klassische ANNs.",
   },
   {
-    eyebrow: "The outcome",
-    body: "You stop managing tools and start compounding output. Every release sharper, every iteration faster, every decision clearer.",
+    eyebrow: "Die Kernfrage",
+    body: "Ab wann schlägt ein SNN einen quantisierten Transformer? Der Kipppunkt liegt bei 7 bis 9 Picojoule pro Spike.",
   },
 ];
+
+const CANDY_WAVE = [
+  [0.102, 0.039, 0.102], // #1a0a1a
+  [0.420, 0.176, 0.420], // #6b2d6b
+  [0.800, 0.400, 0.800], // #cc66cc
+  [0.949, 0.722, 0.949], // #f2b8f2
+  [1.000, 0.839, 1.000], // #ffd6ff
+] as const;
 
 const REVEAL = 0.7;
 const DWELL = 0.3;
@@ -208,7 +215,7 @@ export function ValueProp(): ReactNode {
         className="relative h-screen w-full overflow-hidden"
       >
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] z-0">
-          <WaveShader ref={waveRef} dark={resolvedTheme === "dark"} initialParams={STEP_PRESETS[0]} />
+          <WaveShader ref={waveRef} dark={resolvedTheme === "dark"} initialParams={STEP_PRESETS[0]} waveColors={CANDY_WAVE} />
         </div>
 
         <div className="absolute inset-x-0 top-0 h-px bg-foreground/10 z-10">
@@ -221,15 +228,8 @@ export function ValueProp(): ReactNode {
 
         <div className="absolute inset-x-0 top-0 z-10 px-10 max-[850px]:px-6 pt-28 max-[850px]:pt-24 max-w-[1680px] mx-auto flex items-end justify-between gap-8">
           <h2 className="max-w-[22ch] text-[clamp(1.5rem,2.4vw,2.25rem)] font-medium leading-[1.15] tracking-tight text-foreground/80">
-            A platform built for teams who&rsquo;d rather ship than orchestrate.
+            Bedingte Energieeffizienz von Spiking Neural Networks — eine Kipppunkt-Analyse.
           </h2>
-          <a
-            href="#"
-            className="group hidden max-[850px]:hidden min-[851px]:inline-flex items-center gap-2 rounded-md border border-foreground/[0.08] px-4 py-2.5 text-sm font-medium text-foreground/80 hover:text-foreground hover:border-foreground/[0.16] transition-colors whitespace-nowrap shrink-0"
-          >
-            Learn more
-            <RollingArrow iconSize={16} />
-          </a>
         </div>
 
         <div className="absolute inset-0 z-10 px-10 max-[850px]:px-6 pt-72 max-[850px]:pt-60 pb-16 max-w-[1680px] mx-auto pointer-events-none">

@@ -1,26 +1,21 @@
 {
-  "name": "Your Site Name",
-  "short_name": "Site",
-  "description": "A modern, accessible landing page template built with Next.js, Tailwind CSS, and TypeScript.",
+  "name": "Bedingte Energieeffizienz von Spiking Neural Networks",
+  "short_name": "SNN-Kipppunkt",
+  "description": "Bachelorarbeit-Exposé: Kipppunkt-Analyse von Spiking Neural Networks gegenüber quantisierten Transformern auf SST-2. DBU Berlin.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0066FF",
+  "background_color": "#0a0a0a",
+  "theme_color": "#cc66cc",
   "icons": [
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/apple-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "maskable"
     }
   ]

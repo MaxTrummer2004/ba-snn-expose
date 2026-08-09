@@ -89,6 +89,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scrollbar ausblenden — Chrome, Brave, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
 .skip-to-content {
   position: absolute;
   left: -9999px;

@@ -185,6 +185,15 @@ interface Props {
 
   dark?: boolean;
 
+  /** Override the variant's wave palette. Provide exactly 5 [r,g,b] triples (0–1). */
+  waveColors?: readonly [
+    readonly [number, number, number],
+    readonly [number, number, number],
+    readonly [number, number, number],
+    readonly [number, number, number],
+    readonly [number, number, number],
+  ];
+
   ref?: Ref<WaveShaderHandle>;
 }
 
@@ -201,7 +210,7 @@ const DEFAULTS: WaveParams = {
   bias: 0.0,
 };
 
-export function WaveShader({ className, initialParams, dark, ref }: Props): ReactNode {
+export function WaveShader({ className, initialParams, dark, waveColors, ref }: Props): ReactNode {
   const hostRef = useRef<HTMLDivElement>(null);
 
   const paramsRef = useRef<WaveParams>({ ...DEFAULTS, ...initialParams });
@@ -279,11 +288,11 @@ export function WaveShader({ className, initialParams, dark, ref }: Props): Reac
         u_bias: { value: paramsRef.current.bias },
         u_dark: { value: darkRef.current ? 1 : 0 },
 
-        u_c0: { value: [...v0.wave[0]] },
-        u_c1: { value: [...v0.wave[1]] },
-        u_c2: { value: [...v0.wave[2]] },
-        u_c3: { value: [...v0.wave[3]] },
-        u_c4: { value: [...v0.wave[4]] },
+        u_c0: { value: [...(waveColors?.[0] ?? v0.wave[0])] },
+        u_c1: { value: [...(waveColors?.[1] ?? v0.wave[1])] },
+        u_c2: { value: [...(waveColors?.[2] ?? v0.wave[2])] },
+        u_c3: { value: [...(waveColors?.[3] ?? v0.wave[3])] },
+        u_c4: { value: [...(waveColors?.[4] ?? v0.wave[4])] },
       },
     });
     uniformsRef.current = program.uniforms as Record<string, { value: unknown }>;
@@ -407,13 +416,13 @@ export function WaveShader({ className, initialParams, dark, ref }: Props): Reac
   useEffect(() => {
     const u = uniformsRef.current;
     if (!u) return;
-    const w = variant.wave;
+    const w = waveColors ?? variant.wave;
     (u.u_c0!.value as number[]).splice(0, 3, ...w[0]);
     (u.u_c1!.value as number[]).splice(0, 3, ...w[1]);
     (u.u_c2!.value as number[]).splice(0, 3, ...w[2]);
     (u.u_c3!.value as number[]).splice(0, 3, ...w[3]);
     (u.u_c4!.value as number[]).splice(0, 3, ...w[4]);
-  }, [variant]);
+  }, [variant, waveColors]);
 
   return (
     <div

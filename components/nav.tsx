@@ -7,9 +7,9 @@ import { useEffect, useState, type ReactNode } from "react";
 const easeOutExpo = [0.33, 1, 0.68, 1] as const;
 
 const links = [
-  { label: "Product", href: "#product" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Methodik", href: "#methodik" },
+  { label: "Ergebnisse", href: "#ergebnisse" },
+  { label: "Zeitplan", href: "#zeitplan" },
 ] as const;
 
 interface NavProps {
@@ -19,10 +19,14 @@ interface NavProps {
 
 export function Nav({ delay = 1.4 }: NavProps): ReactNode {
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+      setPastHero(window.scrollY > window.innerHeight * 0.75);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -54,18 +58,22 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
       animate="visible"
       transition={{ staggerChildren: 0.08, delayChildren: delay }}
     >
-      <div className="mx-auto flex items-center justify-between px-10 py-6 max-[850px]:px-6 max-[850px]:py-4 max-w-[1680px]">
+      <div className="flex items-center justify-between px-10 py-8 max-[850px]:px-6 max-[850px]:py-5 w-full">
         <motion.div
-          className="pointer-events-auto"
           variants={{
             hidden: { opacity: 0, y: -12 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.7, ease: easeOutExpo }}
         >
+          <motion.div
+            className="pointer-events-auto"
+            animate={{ opacity: pastHero ? 0 : 1, pointerEvents: pastHero ? "none" : "auto" }}
+            transition={{ duration: 0.4, ease: easeOutExpo }}
+          >
           <motion.a
             href="/"
-            className="relative inline-flex items-center gap-3 text-xl font-medium tracking-tight rounded-lg border"
+            className="relative inline-flex items-center gap-1.5 text-2xl font-medium tracking-tight rounded-lg border"
             initial={false}
             animate={{
               paddingLeft: scrolled ? 12 : 0,
@@ -76,38 +84,29 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
                 ? "rgba(255,255,255,1)"
                 : "rgba(255,255,255,0)",
               color: scrolled ? "#0a0a0a" : "#ffffff",
-
               borderColor: scrolled
                 ? "rgba(10,10,10,0.08)"
                 : "rgba(255,255,255,0)",
             }}
             transition={{ duration: 0.45, ease: easeOutExpo }}
           >
-            <motion.span
-              aria-hidden="true"
-              className="rounded-full border-2"
-              initial={false}
-              animate={{
-                width: scrolled ? 29 : 32,
-                height: scrolled ? 29 : 32,
-                borderColor: scrolled
-                  ? "rgba(10,10,10,0.7)"
-                  : "rgba(255,255,255,0.7)",
-              }}
-              transition={{ duration: 0.45, ease: easeOutExpo }}
-            />
-            <span>Lumen</span>
+            <span>M. Trummer</span>
           </motion.a>
+          </motion.div>
         </motion.div>
 
         <motion.div
-          className="pointer-events-auto"
           variants={{
             hidden: { opacity: 0, y: -12 },
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.7, ease: easeOutExpo }}
         >
+          <motion.div
+            className="pointer-events-auto"
+            animate={{ opacity: pastHero ? 0 : 1, pointerEvents: pastHero ? "none" : "auto" }}
+            transition={{ duration: 0.4, ease: easeOutExpo }}
+          >
           <div className="flex items-center gap-1 rounded-lg border border-neutral-900/[0.08] bg-white p-1.5 text-xs font-medium uppercase tracking-widest text-neutral-700">
             {links.map((l) => (
               <a
@@ -119,10 +118,10 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
               </a>
             ))}
             <a
-              href="#get-started"
+              href="#kontakt"
               className="inline-flex items-center px-4 py-2.5 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 transition-colors duration-200"
             >
-              Get Started
+              Kontakt
             </a>
             <button
               type="button"
@@ -135,6 +134,7 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
               {menuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -196,11 +196,11 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
                 className="mt-6"
               >
                 <a
-                  href="#get-started"
+                  href="#kontakt"
                   onClick={() => setMenuOpen(false)}
                   className="inline-flex items-center justify-center w-full px-4 py-4 rounded-md bg-neutral-900 text-white text-sm font-medium uppercase tracking-widest"
                 >
-                  Get Started
+                  Kontakt
                 </a>
               </motion.li>
             </motion.ul>

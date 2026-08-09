@@ -1,11 +1,11 @@
 {
-  "name": "rbp-shader-template",
+  "name": "snn-kipppunkt-expose",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4000",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,json,css,md}\"",
@@ -13,6 +13,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.6.1",
+    "@types/three": "^0.185.1",
+    "clsx": "^2.1.1",
     "gsap": "^3.15.0",
     "lenis": "^1.3.23",
     "lucide-react": "^0.562.0",
@@ -21,7 +24,9 @@
     "next-themes": "^0.4.6",
     "ogl": "^1.0.11",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

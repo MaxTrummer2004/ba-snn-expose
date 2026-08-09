@@ -163,11 +163,33 @@ export const SHADER_VARIANTS: readonly ShaderVariant[] = [
     },
     wave: [
 
-      rgb(0.040, 0.080, 0.220), 
-      rgb(0.140, 0.300, 0.620), 
-      rgb(0.080, 0.480, 0.620), 
-      rgb(0.060, 0.500, 0.420), 
-      rgb(0.080, 0.420, 0.300), 
+      rgb(0.040, 0.080, 0.220),
+      rgb(0.140, 0.300, 0.620),
+      rgb(0.080, 0.480, 0.620),
+      rgb(0.060, 0.500, 0.420),
+      rgb(0.080, 0.420, 0.300),
+    ],
+  },
+  {
+    id: "candy",
+    label: "Candy",
+    description: "Mauve, lilac, and soft pink",
+    swatch: "#cc66cc",
+    hero: {
+      base: rgb(0.10, 0.04, 0.10),
+      warm: rgb(0.80, 0.40, 0.80),
+      mid: rgb(0.42, 0.18, 0.42),
+      cool: rgb(0.95, 0.72, 0.95),
+      cursor: rgb(0.10, 0.04, 0.10),
+      rgScale: rgb(1.0, 0.85, 1.0),
+      brightness: 2.0,
+    },
+    wave: [
+      rgb(0.102, 0.039, 0.102), // #1a0a1a
+      rgb(0.420, 0.176, 0.420), // #6b2d6b
+      rgb(0.800, 0.400, 0.800), // #cc66cc
+      rgb(0.949, 0.722, 0.949), // #f2b8f2
+      rgb(1.000, 0.839, 1.000), // #ffd6ff
     ],
   },
 ] as const;

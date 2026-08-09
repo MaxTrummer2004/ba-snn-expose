@@ -4,73 +4,49 @@ import Link from "next/link";
 import { ArrowChip } from "@/components/arrow-chip";
 import type { ReactNode } from "react";
 
-const PRODUCT_LINKS = [
-  { label: "Platform", href: "#product" },
-  { label: "Workflows", href: "#product" },
-  { label: "Integrations", href: "#product" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Changelog", href: "#" },
+const CONTENT_LINKS = [
+  { label: "Grundlagen", href: "#architektur" },
+  { label: "Methodik", href: "#methodik" },
+  { label: "Ergebnisse", href: "#ergebnisse" },
+  { label: "Zeitplan", href: "#zeitplan" },
+  { label: "Quellen", href: "#quellen" },
 ];
 
-const COMPANY_LINKS = [
-  { label: "About", href: "#" },
-  { label: "Customers", href: "#partners" },
-  { label: "Careers", href: "#" },
-  { label: "Press", href: "#" },
-  { label: "Contact", href: "#" },
+const ARBEIT_LINKS = [
+  { label: "Anwendungsfälle", href: "#anwendungen" },
+  { label: "Hypothesen", href: "#forschungskontext" },
+  { label: "Effizienz-Landkarte", href: "#ergebnisse" },
+  { label: "Exposé (PDF)", href: "/expose.pdf" },
 ];
 
-const RESOURCES_LINKS = [
-  { label: "Documentation", href: "#" },
-  { label: "API reference", href: "#" },
-  { label: "Status", href: "#" },
-  { label: "Security", href: "#" },
-  { label: "Trust center", href: "#" },
-];
-
-const SOCIAL_LINKS = [
-  { label: "X", href: "https://x.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+const CONTACT_LINKS = [
+  { label: "E-Mail", href: "mailto:maxtrummer16@gmail.com" },
   { label: "GitHub", href: "https://github.com" },
-  { label: "YouTube", href: "https://youtube.com" },
-];
-
-const LEGAL_LINKS = [
-  { label: "Privacy", href: "#" },
-  { label: "Terms", href: "#" },
-  { label: "Cookies", href: "#" },
+  { label: "LinkedIn", href: "https://linkedin.com" },
 ];
 
 export function Footer(): ReactNode {
   return (
     <footer
-      id="contact"
-
+      id="kontakt"
       className="min-[851px]:sticky min-[851px]:bottom-0 z-0 bg-background text-foreground flex flex-col"
     >
       <div className="mx-auto w-full max-w-[1680px] px-6 lg:px-10 pt-24 lg:pt-32">
         <span className="inline-flex items-center rounded-md border border-foreground/[0.08] px-3.5 py-1.5 font-mono text-xs uppercase tracking-widest text-foreground/70">
-          Get in touch
+          Kontakt
         </span>
         <div className="mt-6 text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tighter leading-[0.95] max-w-5xl">
-          <p className="block">
-            Build with intent.
-          </p>
-          <p
-
-            className="block text-foreground/55"
-          >
-            Ship without limits.
-          </p>
+          <p className="block">Effizienz folgt der</p>
+          <p className="block text-foreground/55">Hardware.</p>
         </div>
 
         <div className="mt-12">
           <Link
-            href="mailto:hello@lumen.app"
+            href="mailto:maxtrummer16@gmail.com"
             className="group inline-flex items-stretch gap-1"
           >
             <span className="px-5 py-3 rounded-md bg-foreground text-background text-xs font-medium tracking-widest uppercase">
-              hello@lumen.app
+              maxtrummer16@gmail.com
             </span>
             <ArrowChip className="bg-foreground text-background" />
           </Link>
@@ -81,40 +57,29 @@ export function Footer(): ReactNode {
         <div className="col-span-2 lg:col-span-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-3 text-xl font-medium tracking-tight"
+            className="inline-flex items-center gap-2 text-xl font-medium tracking-tight"
           >
-            <span
-              aria-hidden
-              className="h-8 w-8 rounded-full border-2 border-foreground/70"
-            />
-            Lumen
+            <span aria-hidden className="font-semibold">
+              M
+            </span>
+            Trummer
           </Link>
           <p className="mt-4 text-foreground/55 max-w-xs leading-relaxed">
-            The shared surface where teams design, deploy, and scale
-            modern software — without the seams between tools.
+            Bachelorarbeit-Exposé zur bedingten Energieeffizienz von Spiking
+            Neural Networks — DBU Digital Business University of Applied
+            Sciences, Berlin.
           </p>
         </div>
 
-        <FooterColumn title="Product" links={PRODUCT_LINKS} />
-        <FooterColumn title="Company" links={COMPANY_LINKS} />
-        <FooterColumn title="Resources" links={RESOURCES_LINKS} />
-        <FooterColumn title="Connect" links={SOCIAL_LINKS} external />
+        <FooterColumn title="Inhalt" links={CONTENT_LINKS} />
+        <FooterColumn title="Arbeit" links={ARBEIT_LINKS} />
+        <FooterColumn title="Kontakt" links={CONTACT_LINKS} external />
       </div>
 
       <div className="mt-auto">
         <div className="mx-auto w-full max-w-[1680px] px-6 lg:px-10 py-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between text-sm text-foreground/55">
-          <p>© 2026 Lumen Labs, Inc. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            {LEGAL_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          <p>© 2026 Max Trummer · Matrikelnummer 200028 · DBU Berlin</p>
+          <p>Studiengang Data Science and Management</p>
         </div>
       </div>
     </footer>
@@ -124,7 +89,6 @@ export function Footer(): ReactNode {
 interface FooterColumnProps {
   title: string;
   links: ReadonlyArray<{ label: string; href: string }>;
-
   external?: boolean;
 }
 
