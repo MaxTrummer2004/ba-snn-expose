@@ -5,7 +5,6 @@ import { memo, type ReactNode } from "react";
 import { Portal } from "@/components/portal";
 import SilkWaves from "@/components/silk-waves";
 
-const easeOutExpo = [0.33, 1, 0.68, 1] as const;
 
 const PortalMemo = memo(Portal);
 
