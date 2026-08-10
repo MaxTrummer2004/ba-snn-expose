@@ -7,8 +7,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const scenarios = [
   { label: "0,9 pJ/Spike (Low-Power Edge)", sub: "SNN 185× effizienter als FP32-Transformer", value: 94 },
-  { label: "7–9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone — Ergebnis hängt von genauen pJ ab", value: 52 },
-  { label: "23,6 pJ/Spike (Intel Loihi)", sub: "INT8-Transformer effizienter — SNN-Nachteil auf realer Hardware", value: 17 },
+  { label: "7–9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone, Ergebnis hängt von genauen pJ ab", value: 52 },
+  { label: "23,6 pJ/Spike (Intel Loihi)", sub: "INT8-Transformer effizienter, SNN-Nachteil auf realer Hardware", value: 17 },
 ];
 
 const listVariants: Variants = {
@@ -75,7 +75,7 @@ export function HardwareVerdict() {
               viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
-                Wo SNN gewinnt — und wo nicht.
+                Wo SNN gewinnt. Und wo nicht.
               </h2>
               <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
                 Der SNN-Vorteil ist eine Funktion der Hardware. Auf welchem Chip deployt wird, entscheidet ob SNNs oder INT8-Transformer die effizientere Wahl sind.

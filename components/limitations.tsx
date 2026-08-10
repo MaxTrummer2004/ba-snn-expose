@@ -19,7 +19,7 @@ const limitations: Limitation[] = [
     icon: FunctionSquare,
     title: "Analytisches Energiemodell",
     description:
-      "Energie wird aus publizierten pJ-Werten je Operation und Speicherzugriff modelliert (Horowitz 2014) — nicht an realen Chips gemessen.",
+      "Energie wird aus publizierten pJ-Werten je Operation und Speicherzugriff modelliert (Horowitz 2014), nicht an realen Chips gemessen.",
   },
   {
     icon: Cpu,

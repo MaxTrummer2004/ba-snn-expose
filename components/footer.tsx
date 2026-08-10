@@ -66,7 +66,7 @@ export function Footer(): ReactNode {
           </Link>
           <p className="mt-4 text-foreground/55 max-w-xs leading-relaxed">
             Bachelorarbeit-Exposé zur bedingten Energieeffizienz von Spiking
-            Neural Networks — DBU Digital Business University of Applied
+            Neural Networks. DBU Digital Business University of Applied
             Sciences, Berlin.
           </p>
         </div>

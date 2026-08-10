@@ -95,12 +95,12 @@ export function FinalCta(): ReactNode {
 
             <div className="mt-10 flex items-end justify-between gap-8 max-[850px]:flex-col max-[850px]:items-start">
               <motion.p
-                className="max-w-xl text-3xl font-regular leading-snug tracking-tighter text-white/75 max-[850px]:text-base"
+                className="max-w-xl text-3xl font-normal leading-snug tracking-tighter text-white/75 max-[850px]:text-base"
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                 transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.6 }}
               >
-                Weniger Energie als ein FP32-Transformer — aber nur unterhalb
+                Weniger Energie als ein FP32-Transformer, aber nur unterhalb
                 des Kipppunkts.
               </motion.p>
 

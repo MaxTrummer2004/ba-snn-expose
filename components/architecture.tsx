@@ -97,9 +97,9 @@ export function Architecture() {
             variants={fadeUp}
             className="mt-8 max-w-xl text-xl leading-relaxed text-muted-foreground sm:text-2xl"
           >
-            Spiking Neural Networks kodieren Information in zeitlichen Spike-Mustern –
+            Spiking Neural Networks kodieren Information in zeitlichen Spike-Mustern,
             analog zum menschlichen Gehirn. Nur aktive Neuronen verbrauchen Energie,
-            was den Verbrauch senkt — allerdings nur auf ereignisgesteuerter Hardware.
+            was den Verbrauch senkt, allerdings nur auf ereignisgesteuerter Hardware.
           </motion.p>
 
         </motion.div>

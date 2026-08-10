@@ -138,7 +138,7 @@ export function Hero(): ReactNode {
                   animate={contentVisible ? { opacity: 1, filter: "blur(0px)" } : { opacity: 0, filter: "blur(8px)" }}
                   transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
                 >
-                  Bachelorarbeit-Exposé — DBU Digital Business University of Applied Sciences, Berlin, 2026
+                  Bachelorarbeit-Exposé, DBU Digital Business University of Applied Sciences, Berlin, 2026
                 </motion.p>
               </div>
             </div>

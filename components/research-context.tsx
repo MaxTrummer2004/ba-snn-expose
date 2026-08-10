@@ -21,12 +21,12 @@ export function ResearchContext({
       icon: FlaskConical,
       title: "Forschungsstand",
       description:
-        "Bestehende Arbeiten zeigen SNN-Effizienzvorteile — aber meist ohne direkten Vergleich mit quantisierten Modellen unter gleichen Bedingungen.",
+        "Bestehende Arbeiten zeigen SNN-Effizienzvorteile, meist jedoch ohne direkten Vergleich mit quantisierten Modellen unter gleichen Bedingungen.",
       features: [
         "Roy et al. (2019): SNNs als energieeffiziente Alternative positioniert",
         "Zhu et al. (2023), Lv et al. (2023), Bal & Sengupta (2024): spikende Sprachmodelle",
         "Davidson & Furber (2021), Dampfhoffer et al. (2023): kein Vorteil auf gleicher Hardware",
-        "Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ — Grundlage des Energiemodells",
+        "Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ. Grundlage des Energiemodells",
       ],
     },
     {
@@ -35,7 +35,7 @@ export function ResearchContext({
       description:
         "Kein Benchmark vergleicht SNNs direkt mit INT8-Transformern auf parametergleichen Paaren und realer Hardware-Energie.",
       features: [
-        "Bisherige Studien vergleichen gegen FP32 — nicht gegen INT8",
+        "Bisherige Studien vergleichen gegen FP32, nicht gegen INT8",
         "Kein einheitliches Energiemodell über Hardware-Generationen hinweg",
         "Parametergleiche Paare fehlen in bestehenden Benchmarks",
         "Kipppunkt-Konzept (pJ/Spike) bisher nicht formalisiert",
@@ -45,7 +45,7 @@ export function ResearchContext({
       icon: Zap,
       title: "Hypothesen",
       description:
-        "Zwei Kernhypothesen leiten die empirische Analyse — beide hängen von der Energie pro Spike der Zielhardware ab.",
+        "Zwei Kernhypothesen leiten die empirische Analyse, beide abhängig von der Energie pro Spike der Zielhardware.",
       features: [
         "H1: SNNs sind gegenüber FP32-Transformern über alle pJ/Spike-Werte effizienter",
         "H2: SNNs besitzen einen Kipppunkt gegenüber INT8-Transformern bei ~7–9 pJ/Spike",
@@ -59,7 +59,7 @@ export function ResearchContext({
       description:
         "Diese Arbeit formalisiert den Kipppunkt und liefert eine Effizienz-Landkarte über pJ/Spike und Modellpräzision.",
       features: [
-        "3 SNNs + 3 Transformer — parametergleiche Paare (1–5 Mio. Parameter)",
+        "3 SNNs + 3 Transformer, parametergleiche Paare (1–5 Mio. Parameter)",
         "Benchmark: SST-2 (Stanford Sentiment Treebank), 67.349 Trainingsbeispiele",
         "Messung: SynOps (SNN) vs. MACs (Transformer) pro Inferenz",
         "Ergebnis: Effizienz-Landkarte mit Kipppunkt-Linie und Deployment-Empfehlung",
@@ -107,7 +107,7 @@ export function ResearchContext({
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-lg text-accent-foreground/60 max-w-2xl"
         >
-          Was die Literatur zeigt, was fehlt, welche Hypothesen diese Arbeit prüft — und was der eigene Beitrag ist.
+          Was die Literatur zeigt, was fehlt, welche Hypothesen diese Arbeit prüft und was der eigene Beitrag ist.
         </motion.p>
       </div>
 
@@ -183,7 +183,7 @@ export function ResearchContext({
                     return <Icon className="w-8 h-8 text-accent-foreground" />;
                   })()}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-accent-foreground mb-3">
+                <h3 className="text-2xl md:text-3xl font-semibold text-accent-foreground mb-3">
                   {tabs[activeTab]!.title}
                 </h3>
                 <p className="text-base md:text-lg text-accent-foreground/60 leading-relaxed">

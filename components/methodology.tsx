@@ -15,7 +15,7 @@ const steps: Step[] = [
   },
   {
     title: "Training & Evaluation",
-    copy: "Alle Modelle trainiert auf SST-2 (Stanford Sentiment Treebank). Ergebnis: 79–84% Genauigkeit auf dem Dev-Set — vergleichbar über alle Architekturen.",
+    copy: "Alle Modelle trainiert auf SST-2 (Stanford Sentiment Treebank). Ergebnis: 79–84% Genauigkeit auf dem Dev-Set, vergleichbar über alle Architekturen.",
     icon: Brain,
   },
   {

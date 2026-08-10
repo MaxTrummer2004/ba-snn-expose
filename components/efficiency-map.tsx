@@ -153,7 +153,7 @@ export function EfficiencyMap() {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
               >
-                Parametervergleichbare SNNs und Transformer auf SST-2 —
+                Parametervergleichbare SNNs und Transformer auf SST-2:
                 der Energievorteil gilt nicht bedingungslos, sondern hängt
                 von der Energie pro Spike der Zielhardware und der
                 Rechenpräzision des Vergleichsmodells ab.

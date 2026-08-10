@@ -29,14 +29,14 @@ const KEY_REFERENCES: KeyRef[] = [
     venue: "ISSCC · 2014",
     cite: "Horowitz, M. (2014). 1.1 Computing's energy problem (and what we can do about it).",
     role: "Energiemodell",
-    why: "Liefert die pJ-pro-Operation-Werte (FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ) — die Grundlage des gesamten Kipppunkt-Vergleichs.",
+    why: "Liefert die pJ-pro-Operation-Werte (FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ). Grundlage des gesamten Kipppunkt-Vergleichs.",
   },
   {
     n: 2,
     venue: "IEEE TETCI · 2023",
     cite: "Dampfhoffer, M., Mesquida, T., Valentian, A., & Anghel, L. (2023). Are SNNs really more energy-efficient than ANNs? An in-depth hardware-aware study.",
     role: "Hardware-Vergleich",
-    why: "Zeigt, dass der Effizienzvorteil von SNNs stark von der Zielhardware abhängt — motiviert die hardware-bewusste Fragestellung.",
+    why: "Zeigt, dass der Effizienzvorteil von SNNs stark von der Zielhardware abhängt. Motiviert die hardware-bewusste Fragestellung.",
   },
   {
     n: 17,
@@ -57,14 +57,14 @@ const KEY_REFERENCES: KeyRef[] = [
     venue: "AAAI · 2024",
     cite: "Bal, M., & Sengupta, A. (2024). SpikingBERT: Distilling BERT to train spiking language models using implicit differentiation.",
     role: "Spiking-Sprachmodell",
-    why: "Zeigt, dass SNNs auf Sprachaufgaben mit BERT konkurrieren können — die SNN-Seite des Vergleichs auf SST-2.",
+    why: "Zeigt, dass SNNs auf Sprachaufgaben mit BERT konkurrieren können. Die SNN-Seite des Vergleichs auf SST-2.",
   },
   {
     n: 6,
     venue: "ICML · 2021",
     cite: "Kim, S., et al. (2021). I-BERT: Integer-only BERT quantization.",
     role: "INT8-Baseline",
-    why: "Liefert den quantisierten Transformer als fairen Gegner — die INT8-Seite, gegen die der Kipppunkt gemessen wird.",
+    why: "Liefert den quantisierten Transformer als fairen Gegner. Die INT8-Seite, gegen die der Kipppunkt gemessen wird.",
   },
 ];
 
@@ -188,7 +188,7 @@ export function KeyReferences() {
             Sechs Arbeiten tragen die These.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Das Quellenverzeichnis ist breit — aber das Kipppunkt-Argument steht
+            Das Quellenverzeichnis ist breit, aber das Kipppunkt-Argument steht
             auf diesen sechs Referenzen: dem Energiemodell, dem hardware-bewussten
             Vergleich, der kritischen Neubewertung, der neuromorphen Zielplattform
             sowie dem Spiking-Sprachmodell und der INT8-Baseline des Vergleichs.

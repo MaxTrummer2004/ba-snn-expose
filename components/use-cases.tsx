@@ -93,7 +93,7 @@ export function UseCases(): ReactNode {
             <img
               key={u.src}
               src={u.src}
-              alt={`${u.title} — ${u.sub}`}
+              alt={`${u.title}: ${u.sub}`}
               loading="lazy"
               className="aspect-[3/4] w-full rounded-[20px] border border-border object-cover"
             />
@@ -124,7 +124,7 @@ export function UseCases(): ReactNode {
       <ul className="sr-only">
         {USE_CASES.map((u) => (
           <li key={u.title}>
-            {u.title} — {u.sub}
+            {u.title}: {u.sub}
           </li>
         ))}
       </ul>

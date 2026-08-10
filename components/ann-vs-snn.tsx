@@ -17,7 +17,7 @@ const rows = [
   {
     title: "Energieverbrauch",
     before: "Hoch, konstante Matrixmultiplikation",
-    after: "Nur bei Spikes — hardwareabhängig",
+    after: "Nur bei Spikes, hardwareabhängig",
   },
   {
     title: "Hardware",

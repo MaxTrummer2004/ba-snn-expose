@@ -18,7 +18,7 @@ const STEPS: Step[] = [
   },
   {
     eyebrow: "Der Ansatz",
-    body: "Spiking Neural Networks rechnen nur, wenn ein Spike eintrifft — ereignisgesteuert statt taktsynchron wie klassische ANNs.",
+    body: "SNNs rechnen ereignisgesteuert: nur bei eingehenden Spikes, nicht taktsynchron wie klassische ANNs.",
   },
   {
     eyebrow: "Die Kernfrage",
@@ -228,7 +228,7 @@ export function ValueProp(): ReactNode {
 
         <div className="absolute inset-x-0 top-0 z-10 px-10 max-[850px]:px-6 pt-28 max-[850px]:pt-24 max-w-[1680px] mx-auto flex items-end justify-between gap-8">
           <h2 className="max-w-[22ch] text-[clamp(1.5rem,2.4vw,2.25rem)] font-medium leading-[1.15] tracking-tight text-foreground/80">
-            Bedingte Energieeffizienz von Spiking Neural Networks — eine Kipppunkt-Analyse.
+            Bedingte Energieeffizienz von Spiking Neural Networks: eine Kipppunkt-Analyse.
           </h2>
         </div>
 
