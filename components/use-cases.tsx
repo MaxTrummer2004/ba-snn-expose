@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import ParallaxCarousel from "@/components/parallax-carousel";
 
 const easeOutExpo = [0.33, 1, 0.68, 1] as const;
@@ -46,6 +46,16 @@ export function UseCases(): ReactNode {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.1 });
   const reduce = useReducedMotion();
+
+  // Handy: WebGL-Karussell verkleinern (PC unberührt).
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setMobile(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const images = USE_CASES.map((u) => u.src);
 
@@ -104,13 +114,13 @@ export function UseCases(): ReactNode {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.2 }}
-          style={{ width: "100%", height: 520 }}
+          style={{ width: "100%", height: mobile ? 400 : 520 }}
         >
           <ParallaxCarousel
             images={images}
-            imageWidth={360}
-            imageHeight={480}
-            gap={28}
+            imageWidth={mobile ? 240 : 360}
+            imageHeight={mobile ? 320 : 480}
+            gap={mobile ? 16 : 28}
             parallaxIntensity={0.4}
             loop
             autoplaySpeed={36}

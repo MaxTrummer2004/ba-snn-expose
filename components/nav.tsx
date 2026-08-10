@@ -73,7 +73,7 @@ export function Nav({ delay = 1.4 }: NavProps): ReactNode {
           >
           <motion.a
             href="/"
-            className="relative inline-flex items-center gap-1.5 text-2xl font-medium tracking-tight rounded-lg border"
+            className="relative inline-flex items-center gap-1.5 text-2xl max-md:text-xl font-medium tracking-tight rounded-lg border"
             initial={false}
             animate={{
               paddingLeft: scrolled ? 12 : 0,

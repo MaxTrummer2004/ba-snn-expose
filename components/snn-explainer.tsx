@@ -124,7 +124,7 @@ export function SnnExplainer() {
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });
 
   return (
-    <section className="w-full min-h-screen flex items-start py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="w-full min-h-screen max-md:min-h-0 flex items-start py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-[1400px] mx-auto w-full">
         <h2
           ref={headingRef}

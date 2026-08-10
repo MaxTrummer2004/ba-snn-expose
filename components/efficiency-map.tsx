@@ -206,7 +206,7 @@ export function EfficiencyMap() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-muted max-h-[600px]"
+              className="relative w-full aspect-[3/4] max-sm:aspect-[4/5] rounded-3xl overflow-hidden bg-muted max-h-[600px] max-sm:max-h-[460px]"
             >
               <div
                 aria-hidden="true"

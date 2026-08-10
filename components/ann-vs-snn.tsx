@@ -71,10 +71,10 @@ function Pane({ variant }: { variant: "before" | "after" }) {
               {isAfter ? <Check className="h-4 w-4" strokeWidth={2.5} /> : <CircleDashed className="h-4 w-4" />}
             </span>
             <span className="min-w-0">
-              <span className={`block truncate text-sm ${isAfter ? "font-semibold text-background" : "font-medium text-foreground/70"}`}>
+              <span className={`block truncate max-sm:whitespace-normal text-sm ${isAfter ? "font-semibold text-background" : "font-medium text-foreground/70"}`}>
                 {row.title}
               </span>
-              <span className={`mt-0.5 block truncate text-xs ${isAfter ? "text-background/60" : "text-muted-foreground"}`}>
+              <span className={`mt-0.5 block truncate max-sm:whitespace-normal max-sm:line-clamp-2 text-xs ${isAfter ? "text-background/60" : "text-muted-foreground"}`}>
                 {isAfter ? row.after : row.before}
               </span>
             </span>
@@ -154,7 +154,7 @@ export default function AnnVsSnn() {
                 onPointerMove={(e) => { if (draggingRef.current) updateFromClientX(e.clientX); }}
                 onPointerUp={() => { draggingRef.current = false; setDragging(false); }}
                 onPointerCancel={() => { draggingRef.current = false; setDragging(false); }}
-                className="relative h-[480px] cursor-ew-resize select-none rounded-2xl sm:h-[540px]"
+                className="relative h-[480px] max-sm:h-[440px] cursor-ew-resize select-none rounded-2xl sm:h-[540px]"
               >
                 <div className="absolute inset-0 overflow-hidden rounded-2xl">
                   <Pane variant="before" />

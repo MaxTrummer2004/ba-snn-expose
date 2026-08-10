@@ -69,7 +69,7 @@ export function ResultsEnergy() {
           viewport={{ once: true, margin: "-80px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"
         >
-          <motion.div variants={cellVariants} className="flex min-h-[340px] flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
+          <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
             <div className="flex items-center gap-2.5">
               <Zap className="h-4 w-4 text-muted-foreground" />
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Energieeffizienz</span>
@@ -82,7 +82,7 @@ export function ResultsEnergy() {
             </p>
           </motion.div>
 
-          <motion.div variants={cellVariants} className="flex min-h-[340px] flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
+          <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
             <div className="flex flex-1 flex-col justify-center gap-8 sm:gap-9">
               {rates.map((rate) => (
                 <div key={rate.label}>
@@ -109,7 +109,7 @@ export function ResultsEnergy() {
             </div>
           </motion.div>
 
-          <motion.div variants={cellVariants} className="flex min-h-[340px] items-center rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
+          <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 items-center rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
             <div className="flex w-full items-end justify-center gap-10 sm:gap-14">
               {columns.map((col) => (
                 <div key={col.label} className="flex w-full max-w-[8.5rem] flex-col items-center">
@@ -129,7 +129,7 @@ export function ResultsEnergy() {
             </div>
           </motion.div>
 
-          <motion.div variants={cellVariants} className="flex min-h-[340px] flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
+          <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
             <div className="flex items-center gap-2.5">
               <FlaskConical className="h-4 w-4 text-muted-foreground" />
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Deployment-Entscheidung</span>

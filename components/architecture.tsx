@@ -69,7 +69,7 @@ export function Architecture() {
 
   return (
     <section className="w-full overflow-hidden bg-background px-6 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40">
-      <div className="mx-auto grid w-full max-w-[1800px] grid-cols-1 items-center gap-20 lg:grid-cols-[1fr_1.4fr] lg:gap-20 lg:pl-36">
+      <div className="mx-auto grid w-full max-w-[1800px] grid-cols-1 items-center gap-20 max-md:gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20 lg:pl-36">
         <motion.div
           variants={container}
           initial="hidden"
@@ -111,7 +111,7 @@ export function Architecture() {
           viewport={{ once: true, margin: "-80px" }}
           role="img"
           aria-label="Architekturkarte eines Spiking Neural Networks mit Spike Coding, Neuron Models, Hardware, Energiemetrik, Temporal Coding und Topologie"
-          className="relative mx-auto mb-8 aspect-square w-full max-w-[820px]"
+          className="relative mx-auto mb-8 aspect-square w-full max-w-[820px] max-md:max-w-[380px]"
         >
           <div
             aria-hidden="true"
@@ -178,7 +178,7 @@ export function Architecture() {
             variants={pop}
             className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl border border-border bg-background shadow-lg sm:h-28 sm:w-28">
+            <div className="relative flex h-24 w-24 max-sm:h-20 max-sm:w-20 items-center justify-center rounded-3xl border border-border bg-background shadow-lg sm:h-28 sm:w-28">
               {!reduce && (
                 <motion.span
                   aria-hidden="true"
@@ -219,15 +219,15 @@ export function Architecture() {
                   <motion.div
                     whileHover={{ y: -3, scale: 1.02 }}
                     transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-background shadow-sm sm:h-16 sm:w-16"
+                    className="flex h-14 w-14 max-sm:h-11 max-sm:w-11 items-center justify-center rounded-2xl border border-border bg-background shadow-sm sm:h-16 sm:w-16"
                   >
                     <Icon
-                      className="h-6 w-6 sm:h-7 sm:w-7"
+                      className="h-6 w-6 max-sm:h-5 max-sm:w-5 sm:h-7 sm:w-7"
                       style={{ color: "#cc66cc" }}
                       strokeWidth={1.5}
                     />
                   </motion.div>
-                  <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full px-1.5 text-[11px] font-medium text-muted-foreground">
+                  <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full px-1.5 text-[11px] max-sm:text-[9px] font-medium text-muted-foreground">
                     {node.name}
                   </span>
                 </motion.div>

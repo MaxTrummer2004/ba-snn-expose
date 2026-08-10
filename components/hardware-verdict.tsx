@@ -109,7 +109,7 @@ export function HardwareVerdict() {
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
           >
-            <div className="relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem]">
+            <div className="relative mx-auto w-full max-w-[20rem] max-sm:max-w-[16rem] sm:max-w-[24rem]">
               <Ring value={84} strokeWidth={5} className="h-auto w-full" progressClass="text-[#cc66cc]" />
               <Ring value={79} strokeWidth={2.5} track={false} delay={0.2}
                 className="absolute left-1/2 top-1/2 w-[76%] -translate-x-1/2 -translate-y-1/2"

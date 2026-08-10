@@ -65,7 +65,7 @@ export function Hero(): ReactNode {
     <>
       <Nav delay={1.3} />
 
-      <motion.section className="relative w-full h-screen overflow-hidden">
+      <motion.section className="relative w-full h-screen max-md:h-[100dvh] overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center">
           <motion.div
             className="relative w-full h-full overflow-hidden bg-[#120611]"
@@ -133,7 +133,7 @@ export function Hero(): ReactNode {
 
               <div className="flex items-end justify-between gap-8 px-10 pb-10 max-[850px]:flex-col max-[850px]:items-start max-[850px]:px-6 max-[850px]:pb-6">
                 <motion.p
-                  className="max-w-xl text-2xl font-medium leading-snug tracking-tight text-white/90 will-change-[opacity,filter]"
+                  className="max-w-xl text-2xl max-md:text-base font-medium leading-snug tracking-tight text-white/90 will-change-[opacity,filter]"
                   initial={{ opacity: 0, filter: "blur(8px)" }}
                   animate={contentVisible ? { opacity: 1, filter: "blur(0px)" } : { opacity: 0, filter: "blur(8px)" }}
                   transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
