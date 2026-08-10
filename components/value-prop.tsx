@@ -232,14 +232,14 @@ export function ValueProp(): ReactNode {
           </h2>
         </div>
 
-        <div className="absolute inset-0 z-10 px-10 max-[850px]:px-6 pt-72 max-md:pt-28 pb-16 max-w-[1680px] mx-auto pointer-events-none">
+        <div className="absolute inset-0 z-10 px-10 max-[850px]:px-6 pt-72 max-[850px]:pt-60 pb-16 max-w-[1680px] mx-auto pointer-events-none">
           {STEPS.map((step, i) => (
             <div
               key={i}
               ref={(el) => {
                 stepRefs.current[i] = el;
               }}
-              className="absolute inset-0 px-10 max-[850px]:px-6 pt-72 max-md:pt-28"
+              className="absolute inset-0 px-10 max-[850px]:px-6 pt-72 max-[850px]:pt-60"
               style={{ visibility: "hidden", opacity: 0 }}
             >
               <div className="grid grid-cols-12 gap-8 max-[850px]:grid-cols-1 max-[850px]:gap-6 max-w-[1680px] mx-auto">

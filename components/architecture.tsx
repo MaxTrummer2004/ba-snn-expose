@@ -227,7 +227,7 @@ export function Architecture() {
                       strokeWidth={1.5}
                     />
                   </motion.div>
-                  <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full px-1.5 text-[11px] max-sm:text-[9px] font-medium text-muted-foreground">
+                  <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full px-1.5 text-[11px] font-medium text-muted-foreground">
                     {node.name}
                   </span>
                 </motion.div>
