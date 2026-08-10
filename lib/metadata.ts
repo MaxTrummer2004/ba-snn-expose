@@ -34,7 +34,7 @@ export const siteConfig = {
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.shortDescription}`,
+    default: `${siteConfig.name}, ${siteConfig.shortDescription}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -67,13 +67,13 @@ export const baseMetadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.shortDescription}`,
+    title: `${siteConfig.name}, ${siteConfig.shortDescription}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.shortDescription}`,
+    title: `${siteConfig.name}, ${siteConfig.shortDescription}`,
     description: siteConfig.description,
     creator: siteConfig.creator,
   },
@@ -99,7 +99,7 @@ export function createMetadata({
   noIndex?: boolean;
 }): Metadata {
   const url = `${siteConfig.url}${path}`;
-  const finalTitle = title ?? `${siteConfig.name} — ${siteConfig.shortDescription}`;
+  const finalTitle = title ?? `${siteConfig.name}, ${siteConfig.shortDescription}`;
   const finalDesc = description ?? siteConfig.description;
 
   return {
