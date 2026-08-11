@@ -113,7 +113,7 @@ export function Hero(): ReactNode {
             </motion.div>
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-between max-md:justify-start pt-36 max-[850px]:pt-28 max-md:pt-[32vh] text-white pointer-events-none w-full">
+            <div className="absolute inset-0 flex flex-col justify-between max-md:justify-start pt-36 max-[850px]:pt-28 max-md:pt-[26vh] text-white pointer-events-none w-full">
               <div className="relative pl-16 max-[850px]:pl-8 mt-12 pb-6 overflow-visible">
                 {contentVisible && (
                   <StaggeredText
@@ -131,7 +131,7 @@ export function Hero(): ReactNode {
                 )}
               </div>
 
-              <div className="flex items-end justify-between gap-8 px-10 pb-10 max-[850px]:flex-col max-[850px]:items-start max-[850px]:px-6 max-[850px]:pb-6">
+              <div className="flex items-end justify-between gap-8 px-10 pb-10 max-[850px]:flex-col max-[850px]:items-start max-[850px]:px-6 max-md:pl-8 max-[850px]:pb-6">
                 <motion.p
                   className="max-w-xl text-2xl max-md:text-base font-medium leading-snug tracking-tight text-white/90 will-change-[opacity,filter]"
                   initial={{ opacity: 0, filter: "blur(8px)" }}
