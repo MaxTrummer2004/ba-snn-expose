@@ -14,7 +14,7 @@ export function ResearchContext({
   autoPlayDelay = 5000,
 }: ResearchContextProps) {
   const [activeTab, setActiveTab] = useState(0);
-  const [open, setOpen] = useState(0); // Handy-Akkordeon: offener Eintrag (-1 = alle zu)
+  const [open, setOpen] = useState(-1); // Handy-Akkordeon: offener Eintrag (-1 = alle zu)
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const tabs = [
