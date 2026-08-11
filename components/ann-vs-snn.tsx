@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Check, CircleDashed, Zap, Brain, MoveHorizontal } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -93,6 +93,18 @@ export default function AnnVsSnn() {
   const [dragging, setDragging] = useState(false);
   const reduceMotion = useReducedMotion();
 
+  // Handy: Slider sofort zeigen statt scroll-getriggert (whileInView unzuverlässig).
+  // useEffect statt Lazy-Init: setState nach Hydration = normaler Re-render, wird
+  // angewendet (Hydration-Mismatches patcht React 19 nicht).
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const on = () => setMobile(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+
   const updateFromClientX = useCallback((clientX: number) => {
     const el = containerRef.current;
     if (!el) return;
@@ -101,7 +113,17 @@ export default function AnnVsSnn() {
     setPosition(Math.min(MAX, Math.max(MIN, ((clientX - rect.left) / rect.width) * 100)));
   }, []);
 
-  const slideTransition = dragging || reduceMotion ? { duration: 0 } : { duration: 0.5, ease: EASE };
+  // Desktop: beim Reinscrollen enthüllen. Handy: sofort sichtbar.
+  const inView = useInView(containerRef, { once: true, margin: "-80px" });
+  const revealed = mobile || inView;
+  const posTransition =
+    dragging || reduceMotion
+      ? "none"
+      : "left 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s cubic-bezier(0.22,1,0.36,1)";
+  const clipTransition =
+    dragging || reduceMotion
+      ? "none"
+      : "clip-path 0.5s cubic-bezier(0.22,1,0.36,1)";
 
   return (
     <section className="w-full bg-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
@@ -158,31 +180,33 @@ export default function AnnVsSnn() {
               >
                 <div className="absolute inset-0 overflow-hidden rounded-2xl">
                   <Pane variant="before" />
-                  <motion.div
-                    initial={{ clipPath: "inset(0 100% 0 0)" }}
-                    whileInView={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={slideTransition}
+                  <div
                     className="absolute inset-0 z-10"
+                    style={{
+                      clipPath: `inset(0 ${100 - (revealed ? position : 0)}% 0 0)`,
+                      transition: clipTransition,
+                    }}
                   >
                     <Pane variant="after" />
-                  </motion.div>
+                  </div>
                 </div>
 
-                <motion.div
-                  initial={{ left: "0%", opacity: 0 }}
-                  whileInView={{ left: `${position}%`, opacity: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={slideTransition}
+                <div
                   className="absolute inset-y-0 z-20 w-0.5 -translate-x-1/2 bg-[#cc66cc]"
+                  style={{
+                    left: `${revealed ? position : 0}%`,
+                    opacity: revealed ? 1 : 0,
+                    transition: posTransition,
+                  }}
                 />
 
-                <motion.div
-                  initial={{ left: "0%", opacity: 0 }}
-                  whileInView={{ left: `${position}%`, opacity: 1 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={slideTransition}
+                <div
                   className="absolute top-1/2 z-30"
+                  style={{
+                    left: `${revealed ? position : 0}%`,
+                    opacity: revealed ? 1 : 0,
+                    transition: posTransition,
+                  }}
                 >
                   <button
                     ref={handleRef}
@@ -204,7 +228,7 @@ export default function AnnVsSnn() {
                   >
                     <MoveHorizontal className="h-5 w-5" />
                   </button>
-                </motion.div>
+                </div>
               </div>
             </div>
             <p className="mt-4 flex items-center justify-center gap-2 text-xs font-medium text-muted-foreground">

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef } from "react";
-import { Zap, Brain, Cpu, FlaskConical } from "lucide-react";
+import { Zap, Brain, Cpu, FlaskConical, ChevronDown } from "lucide-react";
 
 interface ResearchContextProps {
   autoPlay?: boolean;
@@ -14,6 +14,7 @@ export function ResearchContext({
   autoPlayDelay = 5000,
 }: ResearchContextProps) {
   const [activeTab, setActiveTab] = useState(0);
+  const [open, setOpen] = useState(0); // Handy-Akkordeon: offener Eintrag (-1 = alle zu)
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const tabs = [
@@ -111,7 +112,90 @@ export function ResearchContext({
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      {/* Handy: Akkordeon — Klick klappt einen Eintrag auf */}
+      <div className="flex flex-col gap-3 lg:hidden">
+        {tabs.map((tab, index) => {
+          const Icon = tab.icon;
+          const isOpen = open === index;
+          return (
+            <div
+              key={index}
+              className="overflow-hidden rounded-2xl bg-accent-foreground/[0.04]"
+            >
+              <button
+                onClick={() => setOpen(isOpen ? -1 : index)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center gap-4 p-4 text-left"
+              >
+                <div
+                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors duration-200 ${
+                    isOpen
+                      ? "bg-[#cc66cc] text-white"
+                      : "bg-accent-foreground/10 text-accent-foreground"
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="flex-1 text-base font-semibold text-accent-foreground">
+                  {tab.title}
+                </h3>
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-accent-foreground/60 transition-transform duration-200 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-4 pb-4">
+                      <p className="mb-4 text-sm leading-relaxed text-accent-foreground/60">
+                        {tab.description}
+                      </p>
+                      <div className="space-y-3">
+                        {tab.features.map((feature, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start gap-3 rounded-xl bg-accent-foreground/[0.06] p-3"
+                          >
+                            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-foreground">
+                              <svg
+                                className="h-3 w-3 text-accent"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={3}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                            </div>
+                            <span className="text-sm font-medium text-accent-foreground/80">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: Tab-Liste + Panel */}
+      <div className="hidden lg:grid lg:grid-cols-12 gap-4">
         <div className="lg:col-span-4 flex flex-col justify-between gap-4">
           {tabs.map((tab, index) => {
             const Icon = tab.icon;

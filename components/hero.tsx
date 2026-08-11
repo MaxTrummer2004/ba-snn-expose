@@ -113,7 +113,7 @@ export function Hero(): ReactNode {
             </motion.div>
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-between pt-36 max-[850px]:pt-28 text-white pointer-events-none w-full">
+            <div className="absolute inset-0 flex flex-col justify-between max-md:justify-center pt-36 max-[850px]:pt-28 text-white pointer-events-none w-full">
               <div className="relative pl-16 max-[850px]:pl-8 mt-12 pb-6 overflow-visible">
                 {contentVisible && (
                   <StaggeredText

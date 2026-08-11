@@ -203,7 +203,7 @@ export function SnnExplainer() {
                 <h4 className="text-base sm:text-lg font-semibold text-foreground">
                   {b.title}
                 </h4>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   {b.desc}
                 </p>
               </div>

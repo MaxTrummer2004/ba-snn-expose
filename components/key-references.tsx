@@ -8,7 +8,7 @@ import {
   type Variants,
 } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -84,20 +84,29 @@ function RefCard({
   reference,
   featured,
   borderOpacity,
+  mobile,
 }: {
   reference: KeyRef;
   featured: boolean;
   borderOpacity: MotionValue<number>;
+  mobile: boolean;
 }) {
   return (
     <motion.article
       variants={cardVar}
       className="relative rounded-2xl border border-border bg-muted/60 p-1.5 shadow-sm backdrop-blur-md"
     >
-      {/* Pinker Rahmen — füllt sich beim Scrollen zeilenweise auf */}
+      {/* Pinker Rahmen — Desktop: scroll-scrub zeilenweise; Handy: pro Karte beim Reinscrollen */}
       <motion.div
         aria-hidden
-        style={{ opacity: borderOpacity }}
+        {...(mobile
+          ? {
+              initial: { opacity: 0 },
+              whileInView: { opacity: 1 },
+              viewport: { once: true, amount: 0.7 },
+              transition: { duration: 0.4, ease: EASE },
+            }
+          : { style: { opacity: borderOpacity } })}
         className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-[#cc66cc] shadow-[0_0_24px_-6px_#cc66cc]"
       />
       <div className="rounded-[10px] border border-border bg-background p-6 shadow-sm sm:p-7">
@@ -137,6 +146,15 @@ function RefCard({
 
 export function KeyReferences() {
   const sectionRef = useRef<HTMLElement>(null);
+
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const on = () => setMobile(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "start 30%"],
@@ -220,6 +238,7 @@ export function KeyReferences() {
                   reference={reference}
                   featured={columnIndex === 0 && index === 0}
                   borderOpacity={rowOpacities[index]!}
+                  mobile={mobile}
                 />
               ))}
             </motion.div>
