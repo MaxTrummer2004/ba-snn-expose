@@ -18,7 +18,7 @@ const features = [
         },
         {
           label: "Dokumentierter Hardware-Bereich",
-          status: "0,9 – 45 pJ",
+          status: "0,9-45 pJ",
           time: "SNN durchgängig effizienter",
         },
         {
@@ -37,7 +37,7 @@ const features = [
       items: [
         {
           label: "Kipppunkt Energie / Spike",
-          status: "7 – 9 pJ",
+          status: "7-9 pJ",
           time: "H2-Prognose",
         },
         {
@@ -70,7 +70,7 @@ const features = [
           time: "Loihi, TrueNorth",
         },
         {
-          label: "Klassifikationsgüte 79 – 84 %",
+          label: "Klassifikationsgüte 79-84 %",
           status: "Vergleichbar",
           time: "SST-2 Dev-Set",
         },
@@ -81,9 +81,9 @@ const features = [
 
 const STATUS_STYLES: Record<string, string> = {
   "185×":       "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300",
-  "0,9 – 45 pJ":"bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300",
+  "0,9-45 pJ":  "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300",
   "Vorläufig":  "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300",
-  "7 – 9 pJ":  "bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300",
+  "7-9 pJ":    "bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300",
   "INT8 besser":"bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300",
   "Empfohlen":  "bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300",
   "Vergleichbar":"bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300",

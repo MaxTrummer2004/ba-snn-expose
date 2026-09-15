@@ -37,7 +37,7 @@ const limitations: Limitation[] = [
     icon: Ruler,
     title: "Kleine Modelle",
     description:
-      "1–5 Mio. Parameter. Die Ergebnisse skalieren nicht zwingend auf große Sprachmodelle mit Milliarden Parametern.",
+      "1-5 Mio. Parameter. Die Ergebnisse skalieren nicht zwingend auf große Sprachmodelle mit Milliarden Parametern.",
   },
   {
     icon: Activity,

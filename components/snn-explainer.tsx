@@ -40,8 +40,8 @@ const content: Record<
     ctaTitle: "Wie SNNs trainiert werden",
     blocks: [
       {
-        title: "STDP – Spike-Timing Dependent Plasticity",
-        desc: "Synapsen stärken sich, wenn ein präsynaptischer Spike kurz vor dem postsynaptischen folgt – eine lokale, biologisch inspirierte Lernregel ohne globale Fehlerrückführung.",
+        title: "STDP: Spike-Timing Dependent Plasticity",
+        desc: "Synapsen stärken sich, wenn ein präsynaptischer Spike kurz vor dem postsynaptischen folgt, eine lokale, biologisch inspirierte Lernregel ohne globale Fehlerrückführung.",
       },
       {
         title: "Surrogate Gradient",
@@ -58,7 +58,7 @@ const content: Record<
       },
       {
         title: "Event-driven Execution",
-        desc: "Im Gegensatz zu taktsynchronen GPUs rechnen neuromorphe Systeme nur dann, wenn ein Spike eintrifft – das eliminiert die größte Energiequelle klassischer Beschleuniger.",
+        desc: "Im Gegensatz zu taktsynchronen GPUs rechnen neuromorphe Systeme nur dann, wenn ein Spike eintrifft. Das eliminiert die größte Energiequelle klassischer Beschleuniger.",
       },
     ],
   },
@@ -67,7 +67,7 @@ const content: Record<
     blocks: [
       {
         title: "Sparsity durch Spikes",
-        desc: "In den trainierten Modellen feuert pro Zeitschritt nur ein kleiner Teil der Neuronen — deutlich weniger als ein Drittel. Diese Sparsity senkt die Rechenarbeit pro Inferenz.",
+        desc: "In den trainierten Modellen feuert pro Zeitschritt nur ein kleiner Teil der Neuronen, deutlich weniger als ein Drittel. Diese Sparsity senkt die Rechenarbeit pro Inferenz.",
       },
       {
         title: "Vergleich mit ANNs",
@@ -84,7 +84,7 @@ const content: Record<
       },
       {
         title: "Robotik & Sensorfusion",
-        desc: "Event-basierte Kameras liefern Spike-Streams, die SNNs nativ verarbeiten – latenzarm, effizient und robust gegenüber schnellen Bewegungen.",
+        desc: "Event-basierte Kameras liefern Spike-Streams, die SNNs nativ verarbeiten, latenzarm, effizient und robust gegenüber schnellen Bewegungen.",
       },
     ],
   },

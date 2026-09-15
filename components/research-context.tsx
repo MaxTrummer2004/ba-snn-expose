@@ -60,7 +60,7 @@ export function ResearchContext({
       description:
         "Diese Arbeit formalisiert den Kipppunkt und liefert eine Effizienz-Landkarte über pJ/Spike und Modellpräzision.",
       features: [
-        "3 SNNs + 3 Transformer, parametergleiche Paare (1–5 Mio. Parameter)",
+        "3 SNNs + 3 Transformer, parametergleiche Paare (1-5 Mio. Parameter)",
         "Benchmark: SST-2 (Stanford Sentiment Treebank), 67.349 Trainingsbeispiele",
         "Messung: SynOps (SNN) vs. MACs (Transformer) pro Inferenz",
         "Ergebnis: Effizienz-Landkarte mit Kipppunkt-Linie und Deployment-Empfehlung",

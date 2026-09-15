@@ -14,25 +14,25 @@ type Phase = {
 
 const phases: Phase[] = [
   {
-    weeks: "Woche 1–2",
+    weeks: "Woche 1-2",
     title: "Literatur & Grundlagen",
     copy: "Vertiefung des Forschungsstands zu SNNs, Transformern, Energiemodellen und neuromorpher Hardware.",
     outputs: ["Grundlagenkapitel", "Literaturbasis"],
   },
   {
-    weeks: "Woche 3–5",
+    weeks: "Woche 3-5",
     title: "Experimente & Kipppunkt",
     copy: "Konsolidierung der Modell-Experimente, Sensitivitäts- und Kipppunktanalysen über Energie pro Spike.",
     outputs: ["Sensitivitätsanalyse", "Effizienz-Landkarte"],
   },
   {
-    weeks: "Woche 6–8",
+    weeks: "Woche 6-8",
     title: "Ergebnis & Methode",
     copy: "Ausarbeitung des Methoden- und Ergebniskapitels: Operationsmetriken, Energiemodell, Kipppunkte.",
     outputs: ["Methodenkapitel", "Ergebniskapitel"],
   },
   {
-    weeks: "Woche 9–11",
+    weeks: "Woche 9-11",
     title: "Diskussion & Revision",
     copy: "Einleitung, Diskussion und Fazit; Einordnung in die Literatur, Limitationen, Gesamtrevision.",
     outputs: ["Diskussion & Fazit", "Gesamtrevision"],

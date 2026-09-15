@@ -140,13 +140,13 @@ export function ResultsEnergy() {
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Deployment-Entscheidung</span>
             </div>
             <h3 className="mt-8 max-w-md text-3xl sm:text-4xl font-medium tracking-tight leading-[1.15] text-foreground">
-              Kipppunkt bei ~7–9 pJ/Spike.
+              Kipppunkt bei ~7-9 pJ/Spike.
             </h3>
             <p className="mt-8 max-w-md text-base sm:text-lg leading-relaxed text-muted-foreground">
               Intel Loihi verbraucht 23,6 pJ/Spike, TrueNorth 26 pJ. Beide liegen über dem Kipppunkt; ein INT8-Transformer ist auf diesen Chips effizienter.
             </p>
             <p className="mt-auto max-w-md pt-10 text-xs leading-relaxed text-muted-foreground">
-              Energiemodell nach Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ. MAC/SynOps-Verhältnis 32–39 pro parametergleichem Paar.
+              Energiemodell nach Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ. MAC/SynOps-Verhältnis 32-39 pro parametergleichem Paar.
             </p>
           </motion.div>
         </motion.div>

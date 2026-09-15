@@ -10,7 +10,7 @@ type Step = { title: string; copy: string; icon: LucideIcon };
 const steps: Step[] = [
   {
     title: "Modelldesign",
-    copy: "3 SNNs und 3 Transformer mit je 1–5 Mio. Parametern. Parametergleiche Paare ermöglichen direkten Effizienzvergleich ohne Genauigkeitsverzerrung.",
+    copy: "3 SNNs und 3 Transformer mit je 1-5 Mio. Parametern. Parametergleiche Paare ermöglichen direkten Effizienzvergleich ohne Genauigkeitsverzerrung.",
     icon: Cpu,
   },
   {
@@ -20,7 +20,7 @@ const steps: Step[] = [
   },
   {
     title: "SynOps / MACs Messung",
-    copy: "SynOps (SNN) und MACs (Transformer) werden pro Inferenz gemessen. Das Verhältnis R je Paarung ist die Basis des Energiemodells — aus ihm folgt der Kipppunkt direkt.",
+    copy: "SynOps (SNN) und MACs (Transformer) werden pro Inferenz gemessen. Das Verhältnis R je Paarung ist die Basis des Energiemodells, aus dem der Kipppunkt direkt folgt.",
     icon: BarChart2,
   },
   {

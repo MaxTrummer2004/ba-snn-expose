@@ -7,7 +7,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const scenarios = [
   { label: "0,9 pJ/Spike (Low-Power Edge)", sub: "SNN 185× effizienter als FP32-Transformer", value: 94 },
-  { label: "7–9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone, Ergebnis hängt von genauen pJ ab", value: 52 },
+  { label: "7-9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone, Ergebnis hängt von genauen pJ ab", value: 52 },
   { label: "23,6 pJ/Spike (Intel Loihi)", sub: "INT8-Transformer effizienter, SNN-Nachteil auf realer Hardware", value: 17 },
 ];
 
