@@ -19,7 +19,7 @@ const easeOutExpo = [0.33, 1, 0.68, 1] as const;
 const FINAL_RADIUS = 24;
 const FRAME_INSET = 10;
 const SCROLL_RANGE = 80;
-const WIPE_DELAY = 700;
+const WIPE_DELAY = 400;
 
 export function Hero(): ReactNode {
   const [heroVisible, setHeroVisible] = useState(false);
@@ -37,7 +37,7 @@ export function Hero(): ReactNode {
     if (!loading) return;
     const id = window.setInterval(() => {
       setProgress((p) => Math.min(p + 1, 100));
-    }, 45);
+    }, 25);
     return () => window.clearInterval(id);
   }, [loading]);
 
@@ -48,7 +48,7 @@ export function Hero(): ReactNode {
       setLoading(false);
       markIntroDone();
       // Content erscheint nachdem Hintergrund sichtbar ist
-      window.setTimeout(() => setContentVisible(true), 900);
+      window.setTimeout(() => setContentVisible(true), 600);
     }, WIPE_DELAY);
     return () => window.clearTimeout(holdT);
   }, [loading, progress]);
