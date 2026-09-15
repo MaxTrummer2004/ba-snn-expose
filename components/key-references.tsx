@@ -198,7 +198,7 @@ export function KeyReferences() {
               />
             </div>
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Aus den 20 Quellen destilliert
+              Aus den 19 Quellen destilliert
             </span>
           </div>
 
@@ -216,7 +216,7 @@ export function KeyReferences() {
             href="#quellen"
             className="group mt-9 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
-            Alle 20 Quellen ansehen
+            Alle 19 Quellen ansehen
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </motion.div>

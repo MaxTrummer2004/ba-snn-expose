@@ -42,20 +42,22 @@ const fade: Variants = {
   visible: { opacity: 1, transition: { duration: 0.5, ease: EASE } },
 };
 
+const toDE = (v: number, decimals: number) => v.toFixed(decimals).replace(".", ",");
+
 function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const shouldReduceMotion = useReducedMotion();
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (shouldReduceMotion) { el.textContent = value.toFixed(decimals); return; }
+    if (shouldReduceMotion) { el.textContent = toDE(value, decimals); return; }
     const controls = animate(0, value, {
       duration: 1.2, ease: EASE,
-      onUpdate: (v) => { el.textContent = v.toFixed(decimals); },
+      onUpdate: (v) => { el.textContent = toDE(v, decimals); },
     });
     return () => controls.stop();
   }, [value, decimals, shouldReduceMotion]);
-  return <span ref={ref}>{(0).toFixed(decimals)}</span>;
+  return <span ref={ref}>{toDE(0, decimals)}</span>;
 }
 
 export function ResultsEnergy() {

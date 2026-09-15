@@ -55,7 +55,7 @@ const limitations: Limitation[] = [
 
 export function Limitations() {
   return (
-    <section className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="limitationen" className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16 lg:mb-20 max-w-2xl">

@@ -35,12 +35,12 @@ function CountUp({
     return () => controls.stop();
   }, [inView, value, reduce]);
 
-  return <span ref={ref}>0</span>;
+  return <span ref={ref}>{value}</span>;
 }
 
 export function FinalCta(): ReactNode {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.35 });
+  const inView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   return (
     <section

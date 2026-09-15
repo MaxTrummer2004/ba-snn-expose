@@ -119,7 +119,7 @@ export function EfficiencyMap() {
   const active = features[activeIndex]!;
 
   return (
-    <section className="w-full py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="landkarte" className="w-full py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 items-center">
 

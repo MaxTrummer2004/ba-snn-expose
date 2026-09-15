@@ -15,14 +15,15 @@ const CONTENT_LINKS = [
 const ARBEIT_LINKS = [
   { label: "Anwendungsfälle", href: "#anwendungen" },
   { label: "Hypothesen", href: "#forschungskontext" },
-  { label: "Effizienz-Landkarte", href: "#ergebnisse" },
+  { label: "Effizienz-Landkarte", href: "#landkarte" },
+  { label: "Limitationen", href: "#limitationen" },
   { label: "Exposé (PDF)", href: "/expose.pdf" },
 ];
 
 const CONTACT_LINKS = [
   { label: "E-Mail", href: "mailto:maxtrummer16@gmail.com" },
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "GitHub", href: "https://github.com/MaxTrummer2004" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/max-trummer-43518b337" },
 ];
 
 export function Footer(): ReactNode {

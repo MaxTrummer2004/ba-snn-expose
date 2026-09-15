@@ -77,10 +77,6 @@ const REFERENCES: Reference[] = [
     venue: "arXiv · 2024",
   },
   {
-    cite: "Yik, J., et al. (2025). The NeuroBench framework for benchmarking neuromorphic computing algorithms and systems.",
-    venue: "Nature Comms · 2025",
-  },
-  {
     cite: "Zafrir, O., et al. (2019). Q8BERT: Quantized 8bit BERT.",
     venue: "EMC2 · NeurIPS 2019",
   },
@@ -96,7 +92,7 @@ type NumberedReference = (typeof numbered)[number];
 const columns: NumberedReference[][] = [
   numbered.slice(0, 7),
   numbered.slice(7, 14),
-  numbered.slice(14, 20),
+  numbered.slice(14, 19),
 ];
 
 function RefCard({
@@ -207,7 +203,7 @@ export function Sources() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.14 }}
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground"
           >
-            20 Quellen · Energiemodell nach Horowitz (2014)
+            19 Quellen · Energiemodell nach Horowitz (2014)
           </motion.p>
         </div>
 

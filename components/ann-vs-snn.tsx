@@ -32,7 +32,7 @@ const rows = [
 ];
 
 const stats = [
-  { icon: Zap, value: "185×", label: "sparsamer als der FP32-Transformer bei 0,9 pJ/Spike" },
+  { icon: Zap, value: "185×", label: "sparsamer als der FP32-Transformer bei 0,9 pJ/Spike · Zwischenstand" },
   { icon: Brain, value: "3. Gen.", label: "neuronaler Netze mit zeitlicher Kodierung" },
 ];
 
