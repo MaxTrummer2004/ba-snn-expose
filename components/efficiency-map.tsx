@@ -133,7 +133,7 @@ export function EfficiencyMap() {
                 transition={{ duration: 0.4 }}
                 className="text-sm sm:text-base text-muted-foreground mb-4 font-mono uppercase tracking-[0.2em]"
               >
-                Forschungsergebnis
+                Zwischenergebnis
               </motion.p>
 
               <motion.h2

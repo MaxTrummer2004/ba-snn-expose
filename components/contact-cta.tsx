@@ -159,9 +159,7 @@ export default function ContactCta() {
               variants={item}
               className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Spiking Neural Networks sind nicht bedingungslos effizienter.
-              Unterhalb von rund 8&thinsp;pJ/Spike sind sie einem INT8-Transformer
-              überlegen, darüber nicht.
+              Spiking Neural Networks sind nicht bedingungslos effizienter. Ob sie einen INT8-Transformer schlagen, entscheidet die Energie pro Spike der Zielhardware.
             </motion.p>
 
             <motion.div variants={item} className="mt-10 w-full sm:w-auto">

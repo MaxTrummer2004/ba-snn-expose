@@ -111,7 +111,7 @@ export function FinalCta(): ReactNode {
                 transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.7 }}
               >
                 <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-white/60">
-                  Faktor vs. FP32
+                  Faktor vs. FP32 · bei 0,9 pJ/Spike
                 </p>
                 <p className="text-[clamp(4.5rem,11vw,9.5rem)] font-semibold leading-none tracking-tight text-white [text-shadow:0_2px_30px_rgba(0,0,0,0.5)]">
                   <CountUp value={185} inView={inView} />

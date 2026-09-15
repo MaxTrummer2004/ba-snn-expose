@@ -80,6 +80,9 @@ export function ResultsEnergy() {
             <p className="mt-8 max-w-md text-base sm:text-lg leading-relaxed text-muted-foreground">
               SNNs sind nicht bedingungslos effizienter. Der Vorteil hängt von der Energie pro Spike der Zielhardware ab, und davon, ob gegen FP32 oder INT8 verglichen wird.
             </p>
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground/60">
+              Werte aus einem ersten, rein operationsbasierten Durchlauf. Die Hauptstudie ergänzt Speicherzugriffe und Zeitschritte.
+            </p>
           </motion.div>
 
           <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">

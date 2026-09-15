@@ -15,17 +15,17 @@ const steps: Step[] = [
   },
   {
     title: "Training & Evaluation",
-    copy: "Alle Modelle trainiert auf SST-2 (Stanford Sentiment Treebank). Ergebnis: 79–84% Genauigkeit auf dem Dev-Set, vergleichbar über alle Architekturen.",
+    copy: "Alle Modelle werden auf SST-2 (Stanford Sentiment Treebank) trainiert und auf dem Dev-Set evaluiert. Vergleichbare Klassifikationsgüte ist die Voraussetzung dafür, dass der Energievergleich überhaupt aussagekräftig ist.",
     icon: Brain,
   },
   {
     title: "SynOps / MACs Messung",
-    copy: "SynOps (SNN) vs. MACs (Transformer) pro Inferenz gemessen. Verhältnis 32–39:1 über alle parametergleichen Paare. Basis für das Energiemodell.",
+    copy: "SynOps (SNN) und MACs (Transformer) werden pro Inferenz gemessen. Das Verhältnis R je Paarung ist die Basis des Energiemodells — aus ihm folgt der Kipppunkt direkt.",
     icon: BarChart2,
   },
   {
     title: "Kipppunkt-Analyse",
-    copy: "Energiemodell nach Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ. Kipppunkt vs. INT8 bei ~7–9 pJ/Spike. Effizienz-Landkarte über pJ/Spike × Präzision.",
+    copy: "Energiemodell nach Horowitz (2014): FP32-MAC = 4,6 pJ, INT8-MAC = 0,23 pJ. Die Energie pro Spike wird über 0,9 bis 45 pJ variiert; daraus entsteht die Effizienz-Landkarte über pJ/Spike × Präzision.",
     icon: Map,
   },
 ];

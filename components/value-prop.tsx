@@ -22,7 +22,7 @@ const STEPS: Step[] = [
   },
   {
     eyebrow: "Die Kernfrage",
-    body: "Ab wann schlägt ein SNN einen quantisierten Transformer? Der Kipppunkt liegt bei 7 bis 9 Picojoule pro Spike.",
+    body: "Ab wann schlägt ein SNN einen quantisierten Transformer? Die Grenze hängt an der Energie pro Spike der Zielhardware — genau die bestimmt diese Arbeit.",
   },
 ];
 

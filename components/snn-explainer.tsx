@@ -67,7 +67,7 @@ const content: Record<
     blocks: [
       {
         title: "Sparsity durch Spikes",
-        desc: "Die trainierten SNNs feuern pro Zeitschritt in Schicht 1 bei 7,5–9,4 % und in Schicht 2 bei 14–27 % der Neuronen. Diese Sparsity senkt die Rechenarbeit pro Inferenz.",
+        desc: "In den trainierten Modellen feuert pro Zeitschritt nur ein kleiner Teil der Neuronen — deutlich weniger als ein Drittel. Diese Sparsity senkt die Rechenarbeit pro Inferenz.",
       },
       {
         title: "Vergleich mit ANNs",

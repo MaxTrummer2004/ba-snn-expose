@@ -80,6 +80,9 @@ export function HardwareVerdict() {
               <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
                 Der SNN-Vorteil ist eine Funktion der Hardware. Auf welchem Chip deployt wird, entscheidet ob SNNs oder INT8-Transformer die effizientere Wahl sind.
               </p>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground/60">
+                Werte aus einem ersten, rein operationsbasierten Durchlauf. Die Hauptstudie ergänzt Speicherzugriffe und Zeitschritte.
+              </p>
             </motion.div>
 
             <motion.ul
