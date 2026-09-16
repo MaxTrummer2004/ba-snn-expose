@@ -36,50 +36,50 @@ export function RevealHeadline({
 
   const inView = useInView(ref, { once: true, amount });
 
-  const words = children.split(/(\s+)/);
+  const phrases = children.split(". ").map((p, i, arr) =>
+    i < arr.length - 1 ? p + "." : p
+  );
 
   const blockTransition: Transition = {
     duration: 0.7,
     ease: [0.22, 1, 0.36, 1],
   };
 
+  let globalWordIndex = 0;
+
   return (
     <Tag ref={ref} id={id} className={className}>
-      {words.map((token, i) => {
-
-        if (/^\s+$/.test(token)) {
-
-          return <span key={`s-${i}`}> </span>;
-        }
-
-        const wordIndex = words
-          .slice(0, i)
-          .filter((t) => !/^\s+$/.test(t)).length;
-        const wordDelay = delay + wordIndex * stagger;
-
-        const isMuted = mutedFrom !== undefined && wordIndex >= mutedFrom;
-
-        return (
-          <span
-            key={`w-${i}`}
-            className="relative inline-block overflow-hidden align-baseline pb-[0.15em]"
-          >
+      {phrases.map((phrase, pi) => {
+        const tokens = phrase.split(/(\s+)/);
+        const phraseSpans = tokens.map((token, ti) => {
+          if (/^\s+$/.test(token)) {
+            return <span key={`s-${pi}-${ti}`}> </span>;
+          }
+          const wordDelay = delay + globalWordIndex * stagger;
+          const isMuted = mutedFrom !== undefined && globalWordIndex >= mutedFrom;
+          globalWordIndex++;
+          return (
             <span
-              className={[
-                "relative",
-                isMuted ? "text-foreground/35" : "",
-              ].join(" ")}
+              key={`w-${pi}-${ti}`}
+              className="relative inline-block overflow-hidden align-baseline pb-[0.15em]"
             >
-              {token}
+              <span className={["relative", isMuted ? "text-foreground/35" : ""].join(" ")}>
+                {token}
+              </span>
+              <motion.span
+                aria-hidden
+                initial={{ y: "0%" }}
+                animate={inView ? { y: "110%" } : { y: "0%" }}
+                transition={{ ...blockTransition, delay: wordDelay }}
+                className="absolute inset-x-0 -top-[0.05em] -bottom-[0.2em] bg-foreground will-change-transform"
+              />
             </span>
-
-            <motion.span
-              aria-hidden
-              initial={{ y: "0%" }}
-              animate={inView ? { y: "110%" } : { y: "0%" }}
-              transition={{ ...blockTransition, delay: wordDelay }}
-              className="absolute inset-x-0 -top-[0.05em] -bottom-[0.2em] bg-foreground will-change-transform"
-            />
+          );
+        });
+        return (
+          <span key={`p-${pi}`} className="whitespace-nowrap">
+            {phraseSpans}
+            {pi < phrases.length - 1 ? " " : ""}
           </span>
         );
       })}
