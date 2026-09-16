@@ -89,6 +89,7 @@ export function Architecture() {
             className="mt-6 max-w-2xl text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl"
             delay={0.15}
             stagger={0.06}
+            breakBetweenPhrases
           >
             Biologisch inspiriert. Bedingt energieeffizient.
           </RevealHeadline>

@@ -20,6 +20,7 @@ interface RevealHeadlineProps {
   amount?: number;
 
   mutedFrom?: number;
+  breakBetweenPhrases?: boolean;
 }
 
 export function RevealHeadline({
@@ -31,6 +32,7 @@ export function RevealHeadline({
   delay = 0,
   amount = 0.5,
   mutedFrom,
+  breakBetweenPhrases = false,
 }: RevealHeadlineProps): ReactNode {
   const ref = useRef<HTMLHeadingElement>(null);
 
@@ -79,7 +81,7 @@ export function RevealHeadline({
         return (
           <span key={`p-${pi}`} className="whitespace-nowrap">
             {phraseSpans}
-            {pi < phrases.length - 1 ? " " : ""}
+            {pi < phrases.length - 1 ? (breakBetweenPhrases ? <br /> : " ") : ""}
           </span>
         );
       })}
