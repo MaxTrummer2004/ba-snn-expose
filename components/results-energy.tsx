@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { animate, motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { Zap, FlaskConical } from "lucide-react";
+import { CountUp } from "@/components/count-up";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -42,24 +42,6 @@ const fade: Variants = {
   visible: { opacity: 1, transition: { duration: 0.5, ease: EASE } },
 };
 
-const toDE = (v: number, decimals: number) => v.toFixed(decimals).replace(".", ",");
-
-function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (shouldReduceMotion) { el.textContent = toDE(value, decimals); return; }
-    const controls = animate(0, value, {
-      duration: 1.2, ease: EASE,
-      onUpdate: (v) => { el.textContent = toDE(v, decimals); },
-    });
-    return () => controls.stop();
-  }, [value, decimals, shouldReduceMotion]);
-  return <span ref={ref}>{toDE(0, decimals)}</span>;
-}
-
 export function ResultsEnergy() {
   return (
     <section id="ergebnisse" className="w-full py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-background">
@@ -68,7 +50,7 @@ export function ResultsEnergy() {
           variants={gridVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.15, margin: "-80px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4"
         >
           <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">

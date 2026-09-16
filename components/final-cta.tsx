@@ -1,42 +1,13 @@
 "use client";
 
-import { animate, motion, useInView, useReducedMotion } from "motion/react";
-import { useEffect, useRef, type ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useRef, type ReactNode } from "react";
+import { CountUp } from "@/components/count-up";
 import { ShaderCanvas } from "@/components/shader-canvas";
 
 const easeOutExpo = [0.33, 1, 0.68, 1] as const;
 
 const HEADLINE_LINES = ["Bedingte Effizienz.", "Kein Automatismus."] as const;
-
-function CountUp({
-  value,
-  inView,
-}: {
-  value: number;
-  inView: boolean;
-}): ReactNode {
-  const ref = useRef<HTMLSpanElement>(null);
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || !inView) return;
-    if (reduce) {
-      el.textContent = String(value);
-      return;
-    }
-    const controls = animate(0, value, {
-      duration: 1.6,
-      ease: easeOutExpo,
-      onUpdate: (v) => {
-        el.textContent = String(Math.round(v));
-      },
-    });
-    return () => controls.stop();
-  }, [inView, value, reduce]);
-
-  return <span ref={ref}>{value}</span>;
-}
 
 export function FinalCta(): ReactNode {
   const sectionRef = useRef<HTMLElement>(null);
@@ -114,7 +85,7 @@ export function FinalCta(): ReactNode {
                   Faktor vs. FP32 · bei 0,9 pJ/Spike
                 </p>
                 <p className="text-[clamp(4.5rem,11vw,9.5rem)] font-semibold leading-none tracking-tight text-white [text-shadow:0_2px_30px_rgba(0,0,0,0.5)]">
-                  <CountUp value={185} inView={inView} />
+                  <CountUp value={185} duration={1.6} inView={inView} />
                   <span className="text-[#f2b8f2]">×</span>
                 </p>
               </motion.div>

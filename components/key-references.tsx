@@ -50,7 +50,7 @@ const KEY_REFERENCES: KeyRef[] = [
     venue: "IEEE Micro · 2018",
     cite: "Davies, M., et al. (2018). Loihi: A neuromorphic manycore processor with on-chip learning.",
     role: "Neuromorphe Hardware",
-    why: "Definiert die reale ereignisgesteuerte Zielplattform, deren Energie pro Spike den Kipppunkt überhaupt erst verschiebt.",
+    why: "Liefert den dokumentierten Wert von 23,6 pJ pro synaptischer Operation — der Ankerpunkt, der zeigt, auf welcher Seite des Kipppunkts real verfügbare Hardware liegt.",
   },
   {
     n: 1,

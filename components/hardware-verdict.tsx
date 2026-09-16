@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { animate, motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
+import { CountUp } from "@/components/count-up";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const scenarios = [
-  { label: "0,9 pJ/Spike (Low-Power Edge)", sub: "SNN 185× effizienter als FP32-Transformer", value: 94 },
-  { label: "7-9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone, Ergebnis hängt von genauen pJ ab", value: 52 },
-  { label: "23,6 pJ/Spike (Intel Loihi)", sub: "INT8-Transformer effizienter, SNN-Nachteil auf realer Hardware", value: 17 },
+  { label: "0,9 pJ/Spike (Low-Power Edge)", sub: "SNN 185× effizienter als FP32-Transformer", fill: 94, display: "185×" },
+  { label: "7-9 pJ/Spike (Kipppunkt INT8)", sub: "Breakeven-Zone, Ergebnis hängt von genauen pJ ab", fill: 52, display: "~1×" },
+  { label: "23,6 pJ/Spike (Intel Loihi)", sub: "INT8-Transformer effizienter, SNN-Nachteil auf realer Hardware", fill: 17, display: "0,4×" },
 ];
 
 const listVariants: Variants = {
@@ -20,22 +20,6 @@ const rowVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
-
-function CountUp({ value }: { value: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (shouldReduceMotion) { el.textContent = String(value); return; }
-    const controls = animate(0, value, {
-      duration: 1.2, ease: EASE,
-      onUpdate: (v) => { el.textContent = String(Math.round(v)); },
-    });
-    return () => controls.stop();
-  }, [value, shouldReduceMotion]);
-  return <span ref={ref}>0</span>;
-}
 
 function Ring({ value, strokeWidth, progressClass, className, track = true, delay = 0 }: {
   value: number; strokeWidth: number; progressClass: string;
@@ -56,7 +40,7 @@ function Ring({ value, strokeWidth, progressClass, className, track = true, dela
         strokeWidth={strokeWidth} strokeLinecap="round" strokeDasharray={circumference}
         initial={{ strokeDashoffset: shouldReduceMotion ? offset : circumference }}
         whileInView={{ strokeDashoffset: offset }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: true, amount: 0.15, margin: "-80px" }}
         transition={{ duration: 1.2, ease: EASE, delay }}
         className={progressClass}
       />
@@ -72,7 +56,7 @@ export function HardwareVerdict() {
           <div>
             <motion.div
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
+              viewport={{ once: true, amount: 0.15, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
                 Wo SNN gewinnt. Und wo nicht.
@@ -87,21 +71,20 @@ export function HardwareVerdict() {
 
             <motion.ul
               variants={listVariants} initial="hidden" whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, amount: 0.15, margin: "-80px" }}
               className="mt-10 border-y border-border divide-y divide-border"
             >
               {scenarios.map((s) => (
                 <motion.li key={s.label} variants={rowVariants} className="flex items-center gap-5 py-6">
                   <div className="h-12 w-12 shrink-0">
-                    <Ring value={s.value} strokeWidth={9} className="h-full w-full" progressClass="text-[#cc66cc]" />
+                    <Ring value={s.fill} strokeWidth={9} className="h-full w-full" progressClass="text-[#cc66cc]" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-base font-semibold text-foreground">{s.label}</h3>
                     <p className="mt-0.5 text-sm text-muted-foreground">{s.sub}</p>
                   </div>
                   <div className="shrink-0 text-2xl sm:text-3xl font-semibold tracking-tight tabular-nums text-foreground">
-                    <CountUp value={s.value} />
-                    <span className="ml-0.5 text-base font-medium text-muted-foreground">%</span>
+                    {s.display}
                   </div>
                 </motion.li>
               ))}
@@ -110,7 +93,7 @@ export function HardwareVerdict() {
 
           <motion.div
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
+            viewport={{ once: true, amount: 0.15, margin: "-80px" }} transition={{ duration: 0.7, ease: EASE }}
           >
             <div className="relative mx-auto w-full max-w-[20rem] max-sm:max-w-[16rem] sm:max-w-[24rem]">
               <Ring value={84} strokeWidth={5} className="h-auto w-full" progressClass="text-[#cc66cc]" />
