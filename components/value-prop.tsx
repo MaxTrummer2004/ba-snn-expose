@@ -22,7 +22,7 @@ const STEPS: Step[] = [
   },
   {
     eyebrow: "Die Kernfrage",
-    body: "Ab wann schlägt ein SNN einen quantisierten Transformer? Die Grenze hängt an der Energie pro Spike der Zielhardware. Genau die bestimmt diese Arbeit.",
+    body: "Ab wann schlägt ein SNN einen quantisierten Transformer? Die Grenze hängt an der Energie pro Spike der Zielhardware.",
   },
 ];
 
