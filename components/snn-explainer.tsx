@@ -124,7 +124,7 @@ export function SnnExplainer() {
           <WordReveal delay={0.21} inView={headingInView}>funktionieren</WordReveal>
         </h2>
 
-        <div className="mt-10 sm:mt-14 flex sm:grid sm:grid-cols-5 gap-2 sm:gap-4 overflow-x-auto pb-1 sm:pb-0">
+        <div className="mt-10 sm:mt-14 flex sm:grid sm:grid-cols-4 gap-2 sm:gap-4 overflow-x-auto pb-1 sm:pb-0">
           {personas.map((p) => {
             const isActive = active === p.key;
             const Icon = p.Icon;
