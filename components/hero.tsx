@@ -33,9 +33,6 @@ export function Hero(): ReactNode {
           <motion.div
             className="relative w-full h-full overflow-hidden bg-[#120611]"
             style={{ borderRadius, scale }}
-            initial={false}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, ease: easeOutExpo }}
           >
             {/* Base: dunkel */}
             <div aria-hidden="true" className="absolute inset-0 w-full h-full bg-[#120611]" />
