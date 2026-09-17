@@ -137,7 +137,7 @@ export default function AnnVsSnn() {
             transition={{ duration: 0.6, ease: EASE }}
           >
             <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
-              ANN vs. SNN. Der Regler zeigt den Unterschied.
+              ANN vs. SNN.
             </h2>
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               Spiking Neural Networks ersetzen den energieintensiven Dauerbetrieb klassischer Netze durch biologisch inspirierte, ereignisgesteuerte Verarbeitung.
