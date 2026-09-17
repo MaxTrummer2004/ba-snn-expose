@@ -46,11 +46,11 @@ export function ResearchContext({
       icon: Zap,
       title: "Hypothesen",
       description:
-        "Zwei Kernhypothesen leiten die empirische Analyse, beide abhängig von der Energie pro Spike der Zielhardware.",
+        "Die Forschungsfrage und die zwei Hypothesen, die sich daraus ableiten.",
       features: [
+        "Forschungsfrage: Bei welcher Energie pro synaptischer Operation kippt der SNN-Vorteil gegenüber einem INT8-Transformer?",
         "H1: SNNs sind gegenüber FP32-Transformern über alle pJ/Spike-Werte effizienter",
         "H2: Der Kipppunkt gegenüber INT8 liegt unterhalb der Werte dokumentierter neuromorpher Chips",
-        "Beide Hypothesen werden auf SST-2 Dev-Set empirisch geprüft",
         "Energiemodell: SynOps × pJ/Spike vs. MACs × pJ/MAC",
       ],
     },
