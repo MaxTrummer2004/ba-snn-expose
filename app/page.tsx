@@ -1,8 +1,6 @@
 import AnnVsSnn from "@/components/ann-vs-snn";
 import { Architecture } from "@/components/architecture";
-import ContactCta from "@/components/contact-cta";
 import { EfficiencyMap } from "@/components/efficiency-map";
-import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { HardwareVerdict } from "@/components/hardware-verdict";
 import { Hero } from "@/components/hero";
@@ -66,8 +64,6 @@ export default function HomePage(): ReactNode {
         <div data-section="timeline"><Timeline /></div>
         <div data-section="sources"><Sources /></div>
         <div data-section="sources"><KeyReferences /></div>
-        <div data-section="cta"><FinalCta /></div>
-        <div data-section="cta"><ContactCta /></div>
       </main>
       <Footer />
     </>
