@@ -1,6 +1,5 @@
 import AnnVsSnn from "@/components/ann-vs-snn";
 import { Architecture } from "@/components/architecture";
-import { EfficiencyMap } from "@/components/efficiency-map";
 import { Footer } from "@/components/footer";
 import { HardwareVerdict } from "@/components/hardware-verdict";
 import { Hero } from "@/components/hero";
@@ -58,7 +57,6 @@ export default function HomePage(): ReactNode {
         <div data-section="annvssnn"><AnnVsSnn /></div>
         <div data-section="results"><ResultsEnergy /></div>
         <div data-section="hardware"><HardwareVerdict /></div>
-        <div data-section="efficiency"><EfficiencyMap /></div>
         <div data-section="usecases"><UseCases /></div>
         <div data-section="limitations"><Limitations /></div>
         <div data-section="timeline"><Timeline /></div>
