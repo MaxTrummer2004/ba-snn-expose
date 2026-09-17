@@ -16,16 +16,16 @@ type Limitation = { icon: LucideIcon; title: string; description: string };
 
 const limitations: Limitation[] = [
   {
-    icon: FunctionSquare,
-    title: "Analytisches Energiemodell",
-    description:
-      "Energie wird aus publizierten pJ-Werten je Operation und Speicherzugriff modelliert (Horowitz 2014), nicht an realen Chips gemessen.",
-  },
-  {
     icon: Cpu,
     title: "Keine Hardware-Messung",
     description:
-      "Loihi (23,6 pJ) und TrueNorth (26 pJ) dienen als dokumentierte Literatur-Ankerpunkte, nicht als eigene Messungen realer Chips.",
+      "Alle Energiewerte stammen aus der Literatur: die Kosten pro Operation von Horowitz (2014), die Ankerpunkte Loihi (23,6 pJ) und TrueNorth (26 pJ) aus den Chip-Veröffentlichungen. Eigene Messungen an neuromorpher Hardware liegen nicht vor.",
+  },
+  {
+    icon: FunctionSquare,
+    title: "Ein Trainingslauf",
+    description:
+      "Die Vorstudie beruht auf einem einzigen Zufallsstartwert. Bei 872 Validierungsbeispielen liegt der Standardfehler der Genauigkeit bei rund 1,3 Prozentpunkten. Die Hauptstudie wiederholt jedes Training mit mehreren Startwerten und berichtet die Streuung.",
   },
   {
     icon: FlaskConical,

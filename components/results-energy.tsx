@@ -56,10 +56,10 @@ export function ResultsEnergy() {
           <motion.div variants={cellVariants} className="flex min-h-[340px] max-md:min-h-0 flex-col rounded-3xl bg-muted p-8 sm:p-10 lg:p-12">
             <div className="flex items-center gap-2.5">
               <Zap className="h-4 w-4 text-muted-foreground" />
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Energieeffizienz</span>
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Vorstudie</span>
             </div>
             <h2 className="mt-8 max-w-md text-3xl sm:text-4xl font-medium tracking-tight leading-[1.15] text-foreground">
-              Der Vorteil ist real. Aber bedingt.
+              Ist die Frage überhaupt entscheidbar?
             </h2>
             <p className="mt-8 max-w-md text-base sm:text-lg leading-relaxed text-muted-foreground">
               SNNs sind nicht bedingungslos effizienter. Der Vorteil hängt von der Energie pro Spike der Zielhardware ab, und davon, ob gegen FP32 oder INT8 verglichen wird.

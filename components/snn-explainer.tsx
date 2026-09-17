@@ -3,7 +3,6 @@
 import { motion, useInView } from "motion/react";
 import { useState, useRef } from "react";
 import {
-  Brain,
   Cpu,
   Layers,
   Zap,
@@ -12,7 +11,6 @@ import {
 } from "lucide-react";
 
 const personas: { key: string; label: string; Icon: LucideIcon }[] = [
-  { key: "neuro",    label: "Neurobiologie",    Icon: Brain },
   { key: "learning", label: "Lernregeln",        Icon: Layers },
   { key: "hardware", label: "Hardware",          Icon: Cpu },
   { key: "energy",   label: "Energieeffizienz",  Icon: Zap },
@@ -23,19 +21,6 @@ const content: Record<
   string,
   { ctaTitle: string; blocks: { title: string; desc: string }[] }
 > = {
-  neuro: {
-    ctaTitle: "Vom Neuron zum Netzwerk",
-    blocks: [
-      {
-        title: "Biologische Plausibilität",
-        desc: "SNNs modellieren das Verhalten biologischer Neuronen: Membranpotenzial, Refraktärzeit und Spike-Schwellen spiegeln echte kortikale Dynamiken wider.",
-      },
-      {
-        title: "Zeitliche Kodierung",
-        desc: "Information steckt nicht nur im Ob, sondern im Wann eines Spikes. Präzise Timing-Muster ermöglichen eine ausdrucksstarke, sparsamere Repräsentation als Ratencodierung.",
-      },
-    ],
-  },
   learning: {
     ctaTitle: "Wie SNNs trainiert werden",
     blocks: [
@@ -118,7 +103,7 @@ function WordReveal({
 }
 
 export function SnnExplainer() {
-  const [active, setActive] = useState("neuro");
+  const [active, setActive] = useState("learning");
   const data = content[active]!;
   const headingRef = useRef<HTMLHeadingElement>(null);
   const headingInView = useInView(headingRef, { once: true, amount: 0.5 });

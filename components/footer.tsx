@@ -15,7 +15,6 @@ const CONTENT_LINKS = [
 const ARBEIT_LINKS = [
   { label: "Anwendungsfälle", href: "#anwendungen" },
   { label: "Hypothesen", href: "#forschungskontext" },
-  { label: "Effizienz-Landkarte", href: "#landkarte" },
   { label: "Limitationen", href: "#limitationen" },
   { label: "Exposé (PDF)", href: "/expose.pdf" },
 ];

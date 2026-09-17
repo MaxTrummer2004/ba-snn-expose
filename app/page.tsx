@@ -32,10 +32,12 @@ export default function HomePage(): ReactNode {
       <main id="main-content" className="relative z-10 flex-1 bg-background">
         <div data-section="hero"><Hero /></div>
         <div data-section="valueprop"><ValueProp /></div>
+        <div data-section="usecases"><UseCases /></div>
         <div id="architektur" data-section="architecture">
           <Architecture />
         </div>
         <div data-section="snn"><SnnExplainer /></div>
+        <div data-section="annvssnn"><AnnVsSnn /></div>
         {/* Curtain: schwarze Sektion steigt beim Scrollen über die weiße */}
         <ScrollCurtain
           id="forschungskontext"
@@ -54,10 +56,8 @@ export default function HomePage(): ReactNode {
         >
           <Methodology />
         </ScrollCurtain>
-        <div data-section="annvssnn"><AnnVsSnn /></div>
         <div data-section="results"><ResultsEnergy /></div>
         <div data-section="hardware"><HardwareVerdict /></div>
-        <div data-section="usecases"><UseCases /></div>
         <div data-section="limitations"><Limitations /></div>
         <div data-section="timeline"><Timeline /></div>
         <div data-section="sources"><Sources /></div>
