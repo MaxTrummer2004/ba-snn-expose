@@ -45,7 +45,7 @@ export default function HomePage(): ReactNode {
           shadow="rgba(0,0,0,0.6)"
           className="z-10 -mt-[140px] w-full bg-accent pt-[80px] text-accent-foreground"
         >
-          <ResearchContext />
+          <ResearchContext autoPlay={false} />
         </ScrollCurtain>
         {/* Curtain: weiße Sektion steigt beim Scrollen über die schwarze */}
         <ScrollCurtain
