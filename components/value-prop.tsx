@@ -226,11 +226,7 @@ export function ValueProp(): ReactNode {
           />
         </div>
 
-        <div className="absolute inset-x-0 top-0 z-10 px-10 max-[850px]:px-6 pt-28 max-[850px]:pt-24 max-w-[1680px] mx-auto flex items-end justify-between gap-8">
-          <h2 className="max-w-[22ch] text-[clamp(1.5rem,2.4vw,2.25rem)] font-medium leading-[1.15] tracking-tight text-foreground/80">
-            Bedingte Energieeffizienz von Spiking Neural Networks: eine Kipppunkt-Analyse.
-          </h2>
-        </div>
+
 
         <div className="absolute inset-0 z-10 px-10 max-[850px]:px-6 pt-72 max-[850px]:pt-60 pb-16 max-w-[1680px] mx-auto pointer-events-none">
           {STEPS.map((step, i) => (
