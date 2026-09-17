@@ -40,7 +40,7 @@ export default function HomePage(): ReactNode {
           data-section="research"
           ariaLabelledby="research-context-heading"
           shadow="rgba(0,0,0,0.6)"
-          className="z-10 -mt-[140px] w-full bg-accent pt-[80px] text-accent-foreground"
+          className="z-[200] -mt-[140px] w-full bg-accent pt-[80px] text-accent-foreground"
         >
           <ResearchContext autoPlay={false} />
         </ScrollCurtain>
@@ -48,7 +48,7 @@ export default function HomePage(): ReactNode {
         <ScrollCurtain
           data-section="methodology"
           shadow="rgba(0,0,0,0.35)"
-          className="z-20 -mt-[140px] overflow-hidden bg-background pt-[80px]"
+          className="z-[300] -mt-[140px] overflow-hidden bg-background pt-[80px]"
         >
           <Methodology />
         </ScrollCurtain>
