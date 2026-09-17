@@ -1,5 +1,4 @@
 import AnnVsSnn from "@/components/ann-vs-snn";
-import { Architecture } from "@/components/architecture";
 import { Footer } from "@/components/footer";
 import { HardwareVerdict } from "@/components/hardware-verdict";
 import { Hero } from "@/components/hero";
@@ -33,9 +32,6 @@ export default function HomePage(): ReactNode {
         <div data-section="hero"><Hero /></div>
         <div data-section="valueprop"><ValueProp /></div>
         <div data-section="usecases"><UseCases /></div>
-        <div id="architektur" data-section="architecture">
-          <Architecture />
-        </div>
         <div data-section="snn"><SnnExplainer /></div>
         <div data-section="annvssnn"><AnnVsSnn /></div>
         {/* Curtain: schwarze Sektion steigt beim Scrollen über die weiße */}

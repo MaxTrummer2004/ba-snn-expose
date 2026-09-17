@@ -5,7 +5,6 @@ import { ArrowChip } from "@/components/arrow-chip";
 import type { ReactNode } from "react";
 
 const CONTENT_LINKS = [
-  { label: "Grundlagen", href: "#architektur" },
   { label: "Methodik", href: "#methodik" },
   { label: "Ergebnisse", href: "#ergebnisse" },
   { label: "Zeitplan", href: "#zeitplan" },
