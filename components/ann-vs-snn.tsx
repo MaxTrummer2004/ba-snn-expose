@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { Check, CircleDashed, Zap, Brain, MoveHorizontal } from "lucide-react";
+import { Check, CircleDashed, Brain, MoveHorizontal } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const MIN = 0;
@@ -32,7 +32,6 @@ const rows = [
 ];
 
 const stats = [
-  { icon: Zap, value: "185×", label: "sparsamer als der FP32-Transformer bei 0,9 pJ/Spike · Zwischenstand" },
   { icon: Brain, value: "3. Gen.", label: "neuronaler Netze mit zeitlicher Kodierung" },
 ];
 
@@ -142,7 +141,7 @@ export default function AnnVsSnn() {
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               Spiking Neural Networks ersetzen den energieintensiven Dauerbetrieb klassischer Netze durch biologisch inspirierte, ereignisgesteuerte Verarbeitung.
             </p>
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid grid-cols-1 gap-4">
               {stats.map((stat) => {
                 const Icon = stat.icon;
                 return (
