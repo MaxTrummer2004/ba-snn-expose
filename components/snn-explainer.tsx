@@ -119,9 +119,7 @@ export function SnnExplainer() {
           {" "}
           <WordReveal delay={0.07} inView={headingInView}>SNNs</WordReveal>
           {" "}
-          <WordReveal delay={0.14} inView={headingInView} italic>wirklich</WordReveal>
-          <br />
-          <WordReveal delay={0.21} inView={headingInView}>funktionieren</WordReveal>
+          <WordReveal delay={0.14} inView={headingInView}>funktionieren</WordReveal>
         </h2>
 
         <div className="mt-10 sm:mt-14 flex sm:grid sm:grid-cols-4 gap-2 sm:gap-4 overflow-x-auto pb-1 sm:pb-0">
