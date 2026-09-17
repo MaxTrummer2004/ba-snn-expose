@@ -36,8 +36,8 @@ export function Footer(): ReactNode {
           Kontakt
         </span>
         <div className="mt-6 text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tighter leading-[0.95] max-w-5xl">
-          <p className="block">Effizienz folgt der</p>
-          <p className="block text-foreground/55">Hardware.</p>
+          <p className="block">Danke für die</p>
+          <p className="block text-foreground/55">Aufmerksamkeit.</p>
         </div>
 
         <div className="mt-12">
