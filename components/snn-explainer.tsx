@@ -6,7 +6,6 @@ import {
   Cpu,
   Layers,
   Zap,
-  FlaskConical,
   type LucideIcon,
 } from "lucide-react";
 
@@ -14,7 +13,6 @@ const personas: { key: string; label: string; Icon: LucideIcon }[] = [
   { key: "learning", label: "Lernregeln",        Icon: Layers },
   { key: "hardware", label: "Hardware",          Icon: Cpu },
   { key: "energy",   label: "Energieeffizienz",  Icon: Zap },
-  { key: "apps",     label: "Anwendungen",       Icon: FlaskConical },
 ];
 
 const content: Record<
@@ -57,19 +55,6 @@ const content: Record<
       {
         title: "Vergleich mit ANNs",
         desc: "Auf identischer digitaler Hardware sind SNNs häufig nicht effizienter als klassische Netze (Davidson & Furber, 2021; Dampfhoffer et al., 2023). Der Vorteil entsteht erst ereignisgesteuert und bei niedriger Spike-Rate.",
-      },
-    ],
-  },
-  apps: {
-    ctaTitle: "Reale Einsatzfelder",
-    blocks: [
-      {
-        title: "Edge AI & IoT",
-        desc: "SNNs eignen sich für energiebeschränkte Geräte: Sprachaktivierung, Gesten­erkennung und Anomalie­detektion laufen auf Milliwatt-Budget ohne Cloud-Anbindung.",
-      },
-      {
-        title: "Robotik & Sensorfusion",
-        desc: "Event-basierte Kameras liefern Spike-Streams, die SNNs nativ verarbeiten, latenzarm, effizient und robust gegenüber schnellen Bewegungen.",
       },
     ],
   },
@@ -122,7 +107,7 @@ export function SnnExplainer() {
           <WordReveal delay={0.14} inView={headingInView}>funktionieren</WordReveal>
         </h2>
 
-        <div className="mt-10 sm:mt-14 flex sm:grid sm:grid-cols-4 gap-2 sm:gap-4 overflow-x-auto pb-1 sm:pb-0">
+        <div className="mt-10 sm:mt-14 flex sm:grid sm:grid-cols-3 gap-2 sm:gap-4 overflow-x-auto pb-1 sm:pb-0">
           {personas.map((p) => {
             const isActive = active === p.key;
             const Icon = p.Icon;
