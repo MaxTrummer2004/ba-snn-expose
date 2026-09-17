@@ -194,7 +194,7 @@ export function Architecture() {
                 strokeWidth={1.5}
               />
               <span className="absolute left-1/2 top-full mt-3 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-background px-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                SNN Core
+                SNN
               </span>
             </div>
           </motion.div>
